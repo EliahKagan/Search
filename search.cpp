@@ -18,24 +18,23 @@ namespace {
     {
         return out << "Foo!";
     }
-}
 
-template <class T>
-void vector_print(const std::vector<T>& vec)
-{
-    auto sep = "";
-    for (const auto& x : vec)
+    template <class T>
+    void vector_print(const std::vector<T>& vec)
     {
-        std::cout << sep << x;
-        sep = " ";
+        auto sep = "";
+        for (const auto& x : vec)
+        {
+            std::cout << sep << x;
+            sep = " ";
+        }
+        std::cout << '\n';
     }
-    std::cout << '\n';
-}
 
-
-void vector_sort(std::vector<int>& vec)
-{
-    std::sort(begin(vec), end(vec), std::greater<>{});
+    void vector_sort(std::vector<int>& vec)
+    {
+        std::sort(begin(vec), end(vec), std::greater<>{});
+    }
 }
 
 int main()
