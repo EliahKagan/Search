@@ -69,9 +69,12 @@ namespace {
     int vindex(const std::vector<T>& vec, const T& el)
     {
         //return first occurance
-        auto index = std::find(vec.begin(), vec.end(), el);
+        auto it = std::find(vec.begin(), vec.end(), el);
         //element is not it
-        if (index != std::end(vec))
+        if (it != std::end(vec))
+            return std::distance(vec.begin(),it);
+        else
+            return -1;
 
 
     }
