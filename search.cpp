@@ -50,22 +50,22 @@ namespace {
     void vector_sort(std::vector<int>& vec)
     {
         std::sort(begin(vec), end(vec), [] (const int lhs, const int rhs) {
-             return lhs % 2 == rhs % 2
-                                ? lhs < rhs
-                                : lhs % 2 != 0;});
+            return lhs % 2 == rhs % 2
+                               ? lhs < rhs
+                               : lhs % 2 != 0;
+        });
     }
 
     void vector_sort_alt(std::vector<int>& vec)
     {
-       // https://en.cppreference.com/w/cpp/algorithm/stable_sort
-       std::stable_sort(vec.begin(), vec.end());
-       std::stable_sort(vec.begin(), vec.end(), [] (const int i, const int j) {
-              if (i % 2 == 0 && j % 2 == 1)
-                 return false;
+        // https://en.cppreference.com/w/cpp/algorithm/stable_sort
+        std::stable_sort(vec.begin(), vec.end());
+        std::stable_sort(vec.begin(), vec.end(), [] (const int i, const int j) {
+            if (i % 2 == 0 && j % 2 == 1)
+                return false;
             else
-                 return true;
-                          });
-
+                return true;
+        });
     }
 }
 
