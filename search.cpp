@@ -39,7 +39,7 @@ void vector_sort(std::vector<int>& vec)
 
 int main()
 {
-    std::vector test {5,6,3,123, 3992, 3876786};
+    std::vector test {59898,6, -344, 123, 4, 3992, 3};
     std::vector test2 {"hello","my","friend"};
     std::vector<Foo> test3(5);
     vector_print (test);
