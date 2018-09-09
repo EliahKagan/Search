@@ -4,6 +4,7 @@
 
 namespace {
     class Foo {
+        public:
         Foo() = default;
         Foo (const Foo &) = delete;
         Foo& operator = (const Foo &) = delete;
