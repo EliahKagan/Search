@@ -64,6 +64,16 @@ namespace {
             return i % 2 == 1 && j % 2 == 0;
         });
     }
+
+    template <class T>
+    void vindex(const std::vector<T>& vec, const T& el)
+    {
+        //return first occurance
+        auto index = std::find(vec.begin(), vec.end(), el);
+        //element is not it
+
+
+    }
 }
 
 int main()
