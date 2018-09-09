@@ -12,5 +12,7 @@ void vector_print(std::vector<T> vec)
 
 int main()
 {
+    std::vector test {1,2,3};
+    vector_print (test);
     std::cout << "...your feelings. You know it to be true!\n"; // searching it is!
 }
