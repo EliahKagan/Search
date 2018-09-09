@@ -1,20 +1,18 @@
 #include <iostream>
+#include <iterator>
 #include <vector>
 
 template <class T>
 void vector_print(const std::vector<T> &vec)
 {
-    auto print_space = false;
-    for (const auto& x : vec) {
-        if (print_space)
-            std::cout << ' ';
-        else
-            print_space = true;
+    if (empty(vec)) return;
 
-        std::cout << x;
-    }
+    const auto last = cend(vec);
+    auto first = cbegin(vec);
 
-    std::cout << '\n';
+    std::cout << *first;
+
+    while (++first != last) std::cout << *first << '\n';
 }
 
 
