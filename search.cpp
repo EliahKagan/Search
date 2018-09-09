@@ -31,15 +31,25 @@ namespace {
         std::cout << '\n';
     }
 
+    bool mycompare(int i, int j)
+    {
+        if (i % 2 == 0 && j % 2 == 1)
+            return false;
+        else if (i % 2 == 1 && j % 2 == 0)
+            return true;
+        else
+            return (i < j);
+    }
+
     void vector_sort(std::vector<int>& vec)
     {
-        std::sort(begin(vec), end(vec), std::greater<>{});
+        std::sort(begin(vec), end(vec), mycompare);
     }
 }
 
 int main()
 {
-    std::vector test {59898,6, -344, 123, 4, 3992, 3};
+    std::vector test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
     std::vector test2 {"hello","my","friend"};
     std::vector<Foo> test3(5);
     print (test);
