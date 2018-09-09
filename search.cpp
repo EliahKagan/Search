@@ -22,7 +22,7 @@ template <class T>
 void vector_print(const std::vector<T> &vec)
 {
     auto sep = "";
-    for (const auto& x : vec)
+    for (const auto x : vec)
     {
         std::cout << sep << x;
         sep = " ";
