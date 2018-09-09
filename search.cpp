@@ -49,7 +49,10 @@ namespace {
 
     void vector_sort(std::vector<int>& vec)
     {
-        std::sort(begin(vec), end(vec), eliah_compare);
+        std::sort(begin(vec), end(vec), [] (const int lhs, const int rhs) {
+             return lhs % 2 == rhs % 2
+                                ? lhs < rhs
+                                : lhs % 2 != 0;});
     }
 }
 
