@@ -54,6 +54,12 @@ namespace {
                                 ? lhs < rhs
                                 : lhs % 2 != 0;});
     }
+
+    void vector_sort_alt(std::vector<int>& vec)
+    {
+        // https://en.cppreference.com/w/cpp/algorithm/stable_sort
+
+    }
 }
 
 int main()
