@@ -72,7 +72,7 @@ namespace {
         auto it = std::find(vec.begin(), vec.end(), el);
         //element is not it
         if (it != std::end(vec))
-            return std::distance(vec.begin(),it);
+            return std::distance(vec.begin(),it); // casts from ptrdiff_t
         else
             return -1;
 
@@ -85,9 +85,6 @@ int main()
     std::vector test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
     std::vector test2 {"hello","my","friend"};
     std::vector<Foo> test3(5);
-    print (test);
-    print (test2);
-    print (test3);
-    vector_sort_alt(test);
-    print (test);
+
+    std::cout << vindex(test, 2) << '\n';
 }
