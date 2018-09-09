@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cstddef>
 #include <functional>
 #include <iostream>
 #include <iterator>
@@ -66,17 +67,15 @@ namespace {
     }
 
     template <class T>
-    int vindex(const std::vector<T>& vec, const T& el)
+    std::ptrdiff_t vindex(const std::vector<T>& vec, const T& el)
     {
         //return first occurance
         auto it = std::find(vec.begin(), vec.end(), el);
         //element is not it
         if (it != std::end(vec))
-            return std::distance(vec.begin(),it); // casts from ptrdiff_t
+            return std::distance(vec.begin(),it);
         else
             return -1;
-
-
     }
 }
 
