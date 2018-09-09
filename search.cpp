@@ -41,6 +41,12 @@ namespace {
             return (i < j);
     }
 
+    bool eliah_compare(const int lhs, const int rhs)
+    {
+        if (lhs % 2 == rhs % 2) return lhs < rhs;
+        return lhs % 2 != 0;
+    }
+
     void vector_sort(std::vector<int>& vec)
     {
         std::sort(begin(vec), end(vec), mycompare);
