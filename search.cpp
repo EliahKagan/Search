@@ -20,7 +20,7 @@ namespace {
     }
 
     template <class T>
-    void vector_print(const std::vector<T>& vec)
+    void print(const std::vector<T>& vec)
     {
         auto sep = "";
         for (const auto& x : vec)
@@ -42,10 +42,10 @@ int main()
     std::vector test {59898,6, -344, 123, 4, 3992, 3};
     std::vector test2 {"hello","my","friend"};
     std::vector<Foo> test3(5);
-    vector_print (test);
-    vector_print (test2);
-    vector_print (test3);
+    print (test);
+    print (test2);
+    print (test3);
     vector_sort(test);
-    vector_print (test);
+    print (test);
     std::cout << "...your feelings. You know it to be true!\n"; // searching it is!
 }
