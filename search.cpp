@@ -34,7 +34,7 @@ void vector_print(const std::vector<T>& vec)
 
 void vector_sort(std::vector<int>& vec)
 {
-    std::sort(vec.begin()), vec.end(), std::greater<int>());
+    std::sort(vec.begin(), vec.end(), std::greater<int>());
 }
 
 int main()
