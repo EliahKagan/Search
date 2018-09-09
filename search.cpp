@@ -2,6 +2,20 @@
 #include <iterator>
 #include <vector>
 
+namespace {
+    class Foo {
+        Foo (const Foo &) = delete;
+        Foo& operator = (const Foo &) = delete;
+        Foo(Foo&&) = default;
+        Foo& operator = (Foo &&) = default;
+    };
+
+    std::ostream& operator<<(std::ostream& out, const Foo&)
+    {
+        return out << "Foo!";
+    }
+}
+
 template <class T>
 void vector_print(const std::vector<T> &vec)
 {
