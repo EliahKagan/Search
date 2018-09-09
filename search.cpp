@@ -1,5 +1,6 @@
 #include <iostream>
 
-int main(int, char**) {
-    std::cout << "Hello, world!\n";
+int main()
+{
+    std::cout << "Replace me with more interesting code.\n";
 }
