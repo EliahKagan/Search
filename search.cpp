@@ -4,10 +4,14 @@
 template <class T>
 void vector_print(const std::vector<T> &vec)
 {
-    auto sep = "";
+    auto print_space = false;
     for (const auto& x : vec) {
-        std::cout << sep << x;
-        sep = " ";
+        if (print_space)
+            std::cout << ' ';
+        else
+            print_space = true;
+
+        std::cout << x;
     }
 
     std::cout << '\n';
