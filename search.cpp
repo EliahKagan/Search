@@ -66,11 +66,12 @@ namespace {
     }
 
     template <class T>
-    void vindex(const std::vector<T>& vec, const T& el)
+    int vindex(const std::vector<T>& vec, const T& el)
     {
         //return first occurance
         auto index = std::find(vec.begin(), vec.end(), el);
         //element is not it
+        if (index != std::end(vec))
 
 
     }
