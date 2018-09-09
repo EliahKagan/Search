@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <iterator>
 #include <vector>
@@ -31,13 +32,20 @@ void vector_print(const std::vector<T>& vec)
 }
 
 
+void vector_sort(std::vector<int>& vec)
+{
+    std::sort(vec.begin(), vec.end());
+}
+
 int main()
 {
-    std::vector test {1,2,3};
+    std::vector test {5,6,3,123, 3992, 3876786};
     std::vector test2 {"hello","my","friend"};
     std::vector<Foo> test3(5);
     vector_print (test);
     vector_print (test2);
     vector_print (test3);
+    vector_sort(test);
+    vector_print (test);
     std::cout << "...your feelings. You know it to be true!\n"; // searching it is!
 }
