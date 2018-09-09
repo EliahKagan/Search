@@ -19,7 +19,7 @@ namespace {
 }
 
 template <class T>
-void vector_print(const std::vector<T> &vec)
+void vector_print(const std::vector<T> vec)
 {
     auto sep = "";
     for (const auto& x : vec)
