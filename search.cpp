@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <iterator>
 #include <vector>
@@ -34,7 +35,7 @@ void vector_print(const std::vector<T>& vec)
 
 void vector_sort(std::vector<int>& vec)
 {
-    std::sort(vec.rbegin(), vec.rend());
+    std::sort(begin(vec), end(vec), std::greater<>{});
 }
 
 int main()
