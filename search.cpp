@@ -4,6 +4,7 @@
 
 namespace {
     class Foo {
+        Foo() = default;
         Foo (const Foo &) = delete;
         Foo& operator = (const Foo &) = delete;
         Foo(Foo&&) = default;
@@ -33,7 +34,7 @@ int main()
 {
     std::vector test {1,2,3};
     std::vector test2 {"hello","my","friend"};
-    std::vector<Foo> test3 (5);
+    std::vector<Foo> test3(5);
     vector_print (test);
     vector_print (test2);
     vector_print (test3);
