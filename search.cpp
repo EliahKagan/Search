@@ -62,7 +62,7 @@ namespace {
         std::sort(vec.begin(), vec.end());
         std::stable_sort(vec.begin(), vec.end(), [] (const int i, const int j) {
             //return i % 2 > j % 2;
-            return !(i % 2 == 0 && j % 2 == 1);
+            return (i % 2 == 1 && j % 2 == 0);
         });
     }
 }
