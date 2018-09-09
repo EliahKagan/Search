@@ -57,7 +57,14 @@ namespace {
 
     void vector_sort_alt(std::vector<int>& vec)
     {
-        // https://en.cppreference.com/w/cpp/algorithm/stable_sort
+       // https://en.cppreference.com/w/cpp/algorithm/stable_sort
+       std::stable_sort(vec.begin(), vec.end());
+       std::stable_sort(vec.begin(), vec.end(), [] (const int i, const int j) {
+              if (i % 2 == 0 && j % 2 == 1)
+                 return false;
+            else if (i % 2 == 1 && j % 2 == 0)
+                 return true;
+                          } );
 
     }
 }
