@@ -4,8 +4,17 @@
 template <class T>
 void vector_print(const std::vector<T> &vec)
 {
+    int flag = 1;
     for (const auto& el : vec)
-        std::cout << el << ' ';
+    {
+        if (flag)
+        {
+            std::cout << el;
+            flag = 0;
+        }
+        else
+            std::cout << ' ' << el;
+    }
     std::cout << '\n';
 }
 
