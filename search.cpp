@@ -2,5 +2,5 @@
 
 int main()
 {
-    std::cout << "Replace me with more interesting code.\n";
+    std::cout << "...your feelings. You know it to be true!\n";
 }
