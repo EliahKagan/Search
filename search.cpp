@@ -43,8 +43,8 @@ namespace {
 
     bool eliah_compare(const int lhs, const int rhs)
     {
-        if (lhs % 2 == rhs % 2) return lhs < rhs;
-        return lhs % 2 != 0;
+        return lhs % 2 == rhs % 2 ? lhs < rhs     // same parity, just compare
+                                  : lhs % 2 != 0; // check if the odd is first
     }
 
     void vector_sort(std::vector<int>& vec)
