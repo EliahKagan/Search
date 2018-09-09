@@ -4,8 +4,9 @@
 template <class T>
 void vector_print(const std::vector<T> &vec)
 {
-    for (auto it = vec.begin(); it != vec.end(); ++it)
-        std::cout << ' ' << *it;
+    // Use https://en.cppreference.com/w/cpp/language/range-for.
+    for (const auto& el : vec)
+        std::cout << ' ' << el;
     std::cout << '\n';
 }
 
