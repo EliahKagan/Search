@@ -11,8 +11,8 @@ void vector_print(const std::vector<T> &vec)
     auto first = cbegin(vec);
 
     std::cout << *first;
-
-    while (++first != last) std::cout << *first << '\n';
+    while (++first != last) std::cout << ' ' << *first;
+    std::cout << '\n';
 }
 
 
