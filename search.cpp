@@ -61,8 +61,8 @@ namespace {
         // https://en.cppreference.com/w/cpp/algorithm/stable_sort
         std::sort(vec.begin(), vec.end());
         std::stable_sort(vec.begin(), vec.end(), [] (const int i, const int j) {
-            return i % 2 > j % 2;
-            //return !(i % 2 == 0 && j % 2 == 1);
+            //return i % 2 > j % 2;
+            return !(i % 2 == 0 && j % 2 == 1);
         });
     }
 }
@@ -75,7 +75,7 @@ int main()
     print (test);
     print (test2);
     print (test3);
-    vector_sort(test);
+    vector_sort_alt(test);
     print (test);
     std::cout << "...your feelings. You know it to be true!\n"; // searching it is!
 }
