@@ -91,7 +91,7 @@ namespace {
     }
 
     template<typename T, std::size_t N>
-    constexpr std::size_t array_size(T (&a)[N])
+    constexpr std::size_t array_size(const T (&a)[N])
     {
         return N;
     }
