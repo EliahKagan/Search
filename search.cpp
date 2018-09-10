@@ -112,4 +112,9 @@ int main()
     const int* const p3 = &x;
     const int& r2 = x;
 
+    auto y = r;
+
+    int a[20] {};
+    int (&ap)[20] = a;
+
 }
