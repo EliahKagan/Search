@@ -103,4 +103,13 @@ int main()
     std::cout << vindex_alt(test, 20) << '\n';
 
     test_pool();
+
+    int x {1};
+    int* p1 = &x;
+    int& r = x;
+    int* p2 = &r;
+
+    const int* const p3 = &x;
+    const int& r2 = x;
+
 }
