@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
+#include "Pool-test.h"
 
 namespace {
     class Foo {
@@ -101,5 +102,5 @@ int main()
     std::cout << vindex(test, 20) << '\n';
     std::cout << vindex_alt(test, 20) << '\n';
 
-
+    test_pool();
 }
