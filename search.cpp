@@ -77,6 +77,17 @@ namespace {
         else
             return -1;
     }
+
+    template<class T>
+    std::ptrdiff_t vindex_alt(const std::vector<T>& vec, const T& el)
+    {
+        for (decltype(size(vec)) i {0}; i != size(vec); ++i) {
+            if (vec[i] == el)
+                return static_cast<std::ptrdiff_t>(i);
+        }
+
+        return -1;
+    }
 }
 
 int main()
