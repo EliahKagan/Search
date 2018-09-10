@@ -89,6 +89,12 @@ namespace {
 
         return -1;
     }
+
+    template<typename T, std::size_t N>
+    constexpr std::size_t array_size(T (&a)[N])
+    {
+        return N;
+    }
 }
 
 int main()
@@ -116,5 +122,5 @@ int main()
 
     int a[20] {};
     int (&ap)[20] = a;
-
+    std::cout << array_size(a) << '\n';
 }
