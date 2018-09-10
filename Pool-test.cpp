@@ -42,7 +42,7 @@ void test_pool()
 
     Pool<Noisy> pool;
     for (auto i = 5; i != 0; --i) {
-        auto noisy = *pool.newmem();
+        auto& noisy = *pool.newmem();
         std::cout << '[' << noisy << "]\n";
     }
 
