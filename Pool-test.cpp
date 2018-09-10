@@ -27,7 +27,7 @@ namespace {
             return *this;
         }
 
-        Noisy() { std::cout << "Destroying " << *this << '\n'; }
+        ~Noisy() { std::cout << "Destroying " << *this << '\n'; }
     };
 
     std::ostream& operator<<(std::ostream& out, const Noisy& noisy)
