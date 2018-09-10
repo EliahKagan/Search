@@ -41,8 +41,10 @@ void test_pool()
     std::cout << '\n';
 
     Pool<Noisy> pool;
-    for (auto i = 5; i != 0; --i)
-        std::cout << '[' << *pool.newmem() << "]\n";
+    for (auto i = 5; i != 0; --i) {
+        auto noisy = *pool.newmem();
+        std::cout << '[' << noisy << "]\n";
+    }
 
     std::cout << "\nPress enter now... ";
     std::cin.get();
