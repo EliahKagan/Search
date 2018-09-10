@@ -89,12 +89,6 @@ namespace {
 
         return -1;
     }
-
-    template<typename T, std::size_t N>
-    constexpr std::size_t array_size(T (&a)[N])
-    {
-        return N;
-    }
 }
 
 int main()
@@ -109,18 +103,4 @@ int main()
     std::cout << vindex_alt(test, 20) << '\n';
 
     test_pool();
-
-    int x {1};
-    int* p1 = &x;
-    int& r = x;
-    int* p2 = &r;
-
-    const int* const p3 = &x;
-    const int& r2 = x;
-
-    auto y = r;
-
-    const volatile int a[20] {};
-    const volatile int (&ap)[20] = a;
-    std::cout << '\n' << array_size(a) << '\n';
 }
