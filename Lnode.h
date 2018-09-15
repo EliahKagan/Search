@@ -11,7 +11,7 @@ struct Lnode
 };
 
 template <typename T>
-Lnode<T>* make_list(vector <T> v)
+Lnode<T>* make_list(vector<T> v, Pool<T> p)
 {
 
 }
