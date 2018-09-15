@@ -1,6 +1,8 @@
 #ifndef LNODESTRUCT
 #define LNODESTRUCT
 
+#include "Pool.h"
+
 template <typename T>
 struct Lnode
 {
@@ -9,7 +11,7 @@ struct Lnode
 };
 
 template <typename T>
-Lnode* make_list(vector <T> v)
+Lnode<T>* make_list(vector <T> v)
 {
 
 }
