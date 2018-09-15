@@ -14,7 +14,9 @@ struct Lnode
 template <typename T>
 Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
-    for (auto i: v)
+
+    Lnode* head = nullptr;
+    for (auto i = v.rbegin(); i != v.rend(); ++i)
     {
 
     }
