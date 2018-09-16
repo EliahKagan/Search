@@ -100,6 +100,10 @@ int main()
     Pool <Lnode<int>> p;
     Lnode<int>* start = make_list(test, p);
 
+    std::vector<int> test2 = make_vector(start);
+
+
+
 
 
     //std::vector<Foo> test3(5);
