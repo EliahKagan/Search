@@ -38,4 +38,13 @@ std::vector<T> make_vector(const Lnode<T>* list)
     return rvec;
 }
 
+template <typename T>
+Lnode<T>* search_list(Lnode<T>* start, T value)
+{
+    //if in list, return pointer to first occurance
+
+    //else if not in list, return nullptr
+}
+
+
 #endif // ! LNODESTRUCT
