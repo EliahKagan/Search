@@ -28,9 +28,13 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 template <typename T>
 Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
-    //first node
+    Lnode<T>* head = nullptr;
+    Lnode<T>* current = nullptr;
+    Lnode<T>* tail = nullptr;
+    for (auto i: v)
+    {
 
-    //subsequent nodes
+    }
 }
 
 template <typename T>
