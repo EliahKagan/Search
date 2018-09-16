@@ -26,6 +26,13 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 }
 
 template <typename T>
+Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
+{
+    Lnode<T> sentinel {};
+    auto cur = &sentinel;
+}
+
+template <typename T>
 std::vector<T> make_vector(const Lnode<T>* list)
 {
     std::vector<T> rvec;
