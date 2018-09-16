@@ -25,4 +25,10 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
     return head;
 }
 
+template <typename T>
+std::vector<T> make_vector(const Lnode<T>* list)
+{
+
+}
+
 #endif // ! LNODESTRUCT
