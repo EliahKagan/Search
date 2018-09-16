@@ -95,10 +95,10 @@ namespace {
 int main()
 {
     std::vector<int> test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
-    std::vector<int> test2 {"hello","my","friend"};
+    //std::vector test2 {"hello","my","friend"};
 
     Pool <Lnode<int>> p;
-    make_list(test, p);
+    Lnode<int>* start = make_list(test, p);
 
 
 
