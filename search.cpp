@@ -107,7 +107,7 @@ int main()
     print(test2);
 
     Lnode<int>* three = search_list(start, 3);
-    std::cout << "There is a three located at address: " << three << "\n";
+    std::cout << three->element << "\n";
 
 
 
