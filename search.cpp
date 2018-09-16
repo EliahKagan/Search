@@ -107,7 +107,11 @@ int main()
     print(test2);
 
     Lnode<int>* three = search_list(start, 3);
-    std::cout << three->element << "\n";
+    if (three != nullptr)
+        std::cout << three->element << "is located at address" << three <<"\n";
+    else
+        std::cout << "No three found\n";
+
 
 
 
