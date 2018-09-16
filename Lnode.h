@@ -14,10 +14,10 @@ struct Lnode
 template <typename T>
 Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
-    Lnode* head = nullptr;
+    Lnode<T>* head = nullptr;
     for (auto it = v.rbegin(); it != v.rend(); ++it)
     {
-        Lnode* temp = p.newmem();
+        Lnode<T>* temp = p.newmem();
         temp->element = *it;
         temp->next = head;
         head = temp;
