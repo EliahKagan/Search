@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cassert>
 #include <cstddef>
 #include <functional>
 #include <iostream>
@@ -108,6 +109,8 @@ int main()
 
     for (const auto value : {3, 10}) {
         const auto node = search_list(start, value);
+        assert(node == search_list_eliah(start, value));
+
         if (node) {
             std::cout << node->element << " found at "
                       << static_cast<const void*>(node) << ".\n";
