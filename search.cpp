@@ -102,7 +102,9 @@ int main()
 
     std::vector<int> test2 = make_vector(start);
 
-
+    print(test2);
+    vector_sort(test2);
+    print(test2);
 
 
 
