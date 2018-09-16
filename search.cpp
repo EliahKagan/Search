@@ -5,6 +5,7 @@
 #include <iterator>
 #include <vector>
 #include "Pool-test.h"
+#include "Lnode.h"
 
 namespace {
     class Foo {
@@ -93,14 +94,20 @@ namespace {
 
 int main()
 {
-    std::vector test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
-    std::vector test2 {"hello","my","friend"};
-    std::vector<Foo> test3(5);
+    std::vector<int> test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
+    std::vector<int> test2 {"hello","my","friend"};
 
-    std::cout << vindex(test, 2) << '\n';
-    std::cout << vindex_alt(test, 2) << '\n';
-    std::cout << vindex(test, 20) << '\n';
-    std::cout << vindex_alt(test, 20) << '\n';
+    Pool <Lnode<int>> p;
+    make_list(test, p);
 
-    test_pool();
+
+
+    //std::vector<Foo> test3(5);
+
+    //std::cout << vindex(test, 2) << '\n';
+    //std::cout << vindex_alt(test, 2) << '\n';
+    //std::cout << vindex(test, 20) << '\n';
+    //std::cout << vindex_alt(test, 20) << '\n';
+
+    //test_pool();
 }
