@@ -28,7 +28,12 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 template <typename T>
 std::vector<T> make_vector(const Lnode<T>* list)
 {
-
+    vector<T> rvec;
+    while (list != nullptr) //If list doesn't end, BAD!!!!!!
+    {
+        rvec.push_back(list->element);
+        list = list->next;
+    }
 }
 
 #endif // ! LNODESTRUCT
