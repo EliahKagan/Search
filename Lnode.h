@@ -35,6 +35,7 @@ std::vector<T> make_vector(const Lnode<T>* list)
         rvec.push_back(list->element);
         list = list->next;
     }
+    return rvec;
 }
 
 #endif // ! LNODESTRUCT
