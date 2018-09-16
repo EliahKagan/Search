@@ -29,6 +29,10 @@ template <typename T>
 std::vector<T> make_vector(const Lnode<T>* list)
 {
     vector<T> rvec;
+
+    // if you want to use a for loop...
+    for (; list; list = list->next) rvec.push_back(list->element);
+
     while (list != nullptr) //If list doesn't end, BAD!!!!!!
     {
         rvec.push_back(list->element);
