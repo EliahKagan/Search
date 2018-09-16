@@ -106,6 +106,9 @@ int main()
     vector_sort(test2);
     print(test2);
 
+    Lnode<int>* three = search_list(start, 3);
+    std::cout << "There is a three located at address: " << three << "\n";
+
 
 
     //std::vector<Foo> test3(5);
