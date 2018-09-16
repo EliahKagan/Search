@@ -101,6 +101,9 @@ int main()
     Pool <Lnode<int>> p;
     Lnode<int>* start = make_list(test, p);
 
+    auto start2 = make_list_fwd(test, p);
+    auto start3 = make_list_fwd_eliah(test, p);
+
     std::vector<int> test2 = make_vector(start);
 
     print(test2);
