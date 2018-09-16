@@ -31,7 +31,6 @@ Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
     Lnode<T>* head = nullptr;
     Lnode<T>* current = nullptr;
 
-
     int flag = 0;
 
     for (auto& i: v)
