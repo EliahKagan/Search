@@ -31,18 +31,16 @@ Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
     Lnode<T>* head = nullptr;
     Lnode<T>* current = nullptr;
 
-    int flag = 0;
-
     for (auto& i: v)
     {
 
-         if (head == nullptr)
-         {
+        if (head == nullptr)
+        {
             //first element
             current = p.newmem();
             head = current;
             current->element = i;
-         }
+        }
         else
         {
             //subsequent elements
