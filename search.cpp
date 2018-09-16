@@ -106,19 +106,15 @@ int main()
     vector_sort(test2);
     print(test2);
 
-    Lnode<int>* three = search_list(start, 3);
-    if (three != nullptr)
-        std::cout << three->element << " is located at address" << three <<"\n";
-    else
-        std::cout << "No three found\n";
-
-    Lnode<int>* ten = search_list(start, 10);
-    if (ten != nullptr)
-        std::cout << ten->element << " is located at address" << ten <<"\n";
-    else
-        std::cout << "No ten found\n";
-
-
+    for (const auto value : {3, 10}) {
+        const auto node = search_list(start, value);
+        if (node) {
+            std::cout << node->element << " found at "
+                      << static_cast<const void*>(node) << ".\n";
+        } else {
+            std::cout << value << " not found.\n";
+        }
+    }
 
     //std::vector<Foo> test3(5);
 
