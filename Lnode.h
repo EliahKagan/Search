@@ -51,6 +51,21 @@ Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
     return head;
 }
 
+template<typename T>
+Lnode<T>* make_list_fwd_eliah(const std::vector<T>& v, Pool<Lnode<T>>& p)
+{
+    Lnode<T> sentinel {};
+    auto cur = &sentinel;
+
+    for (const auto& x : v) {
+        cur->next = p.newmem();
+        cur = cur->next;
+        cur->element = x;
+    }
+
+    return sentinel.next;
+}
+
 template <typename T>
 std::vector<T> make_vector(const Lnode<T>* list)
 {
