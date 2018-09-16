@@ -22,6 +22,7 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
         temp->next = head;
         head = temp;
     }
+    return head;
 }
 
 #endif // ! LNODESTRUCT
