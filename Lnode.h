@@ -39,12 +39,20 @@ std::vector<T> make_vector(const Lnode<T>* list)
 }
 
 template <typename T>
-Lnode<T>* search_list(Lnode<T>* start, T value)
+Lnode<T>* search_list(Lnode<T>* list, const T& value)
 {
-    //if in list, return pointer to first occurance
+    for (; list != nullptr; list = list ->next)
+      if (list->element == value)
+            break;
 
-    //else if not in list, return nullptr
+    return list;
 }
 
+template<typename T>
+Lnode<T>* search_list_eliah(Lnode<T>* list, const T& value)
+{
+    while (list && list->element != value) list = list->next;
+    return list;
+}
 
 #endif // ! LNODESTRUCT
