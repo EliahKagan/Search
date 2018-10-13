@@ -138,7 +138,8 @@ int main()
     print_list(start_copy);
     std::cout << list_equal(start, start_copy) << ' '
               << list_equal(start, start_copy) << '\n';
-    reverse_list(start);
+
+    start = reverse_list(start);
     print_list(start);
 
 
