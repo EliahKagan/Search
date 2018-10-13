@@ -139,4 +139,15 @@ bool list_equal(Lnode<T>* list1, Lnode<T>* list2)
     return list1 == nullptr && list2 == nullptr;
 }
 
+template<typename T>
+bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
+{
+    for (; list1 != list2; list1 = list1->next, list2 = list2->next) {
+        if (!list1 || !list2 || list1->element != list2->element)
+            return false;
+    }
+
+    return true;
+}
+
 #endif // ! LNODESTRUCT
