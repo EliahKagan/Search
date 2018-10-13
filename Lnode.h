@@ -195,4 +195,25 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
     return std::make_pair(pass_sentinel.next, fail_sentinel.next);
 }
 
+template <typename T>
+Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
+{
+    Lnode<T> top_sentinel {0, top};
+    auto tpos = &top_sentinel;
+
+    Lnode<T> bottom_sentinel {0, bottom};
+    auto bpos = &bottom_sentinel;
+
+    while (tpos->next != nullptr)
+    {
+        if(bpos->next->element < tpos->next->element)
+        {
+            bpos->next->next = tpos->next->next;
+            tpos->next = bpos->next;
+            bpos = bpos -> next;
+        }
+    }
+}
+
+
 #endif // ! LNODESTRUCT
