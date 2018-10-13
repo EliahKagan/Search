@@ -101,6 +101,7 @@ int main()
     Pool <Lnode<int>> p;
     Lnode<int>* start = make_list(test, p);
     print_list(start);
+    std::cout << "print fucntion output above\n";
 
     auto start2 = make_list_fwd(test, p);
     auto start3 = make_list_fwd_eliah(test, p);
