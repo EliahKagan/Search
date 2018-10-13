@@ -204,15 +204,16 @@ Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
     Lnode<T> bottom_sentinel {0, bottom};
     auto bpos = &bottom_sentinel;
 
-    while (tpos->next != nullptr)
+    while (tpos->next != nullptr && bpos->next != nullptr)
     {
         if(bpos->next->element < tpos->next->element)
         {
-            bpos->next->next = tpos->next->next;
+            bpos->next->next = tpos->next;
             tpos->next = bpos->next;
-            bpos = bpos -> next;
+
         }
     }
+
 }
 
 
