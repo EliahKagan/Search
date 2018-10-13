@@ -3,6 +3,7 @@
 
 #include "Pool.h"
 #include <iostream>
+#include <utility>
 #include <vector>
 
 template <typename T>
@@ -68,6 +69,7 @@ Lnode<T>* reverse_list(Lnode<T>* list)
     return head;
 }
 
+
 template <typename T>
 Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
@@ -94,7 +96,7 @@ Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
     return head;
 }
 
-template<typename T>
+template <typename T>
 Lnode<T>* make_list_fwd_eliah(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
     Lnode<T> sentinel {};
@@ -153,7 +155,7 @@ bool list_equal(Lnode<T>* list1, Lnode<T>* list2)
     return list1 == nullptr && list2 == nullptr;
 }
 
-template<typename T>
+template <typename T>
 bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
 {
     for (; list1 != list2; list1 = list1->next, list2 = list2->next) {
@@ -163,5 +165,18 @@ bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
 
     return true;
 }
+
+template <typename T, typename F>
+std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
+{
+    while (list != nullptr)
+    {
+        auto next = list->next;
+        if (f(list->element))
+
+        list = next;
+    }
+}
+
 
 #endif // ! LNODESTRUCT
