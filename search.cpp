@@ -129,7 +129,7 @@ int main()
     std::cout << "modified original, and unmodified copy, below\n";
     auto start_copy = copy_list(start, p);
     std::cout << std::boolalpha << list_equal(start, start_copy) << "\n";
-    start->next->next->element *= 1000;
+    //start->next->next->element *= 1000;
     start->next->next->next->next = nullptr;
     print_list(start);
     print_list(start_copy);
