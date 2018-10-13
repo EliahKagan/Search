@@ -175,7 +175,7 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
     auto pos = &fail_sentinel;
 
     Lnode<T> pass_sentinel {};
-    auto passpos = &passlistsentinel;
+    auto passpos = &pass_sentinel;
 
     while (pos->next != nullptr)
     {
