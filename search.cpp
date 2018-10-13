@@ -95,6 +95,8 @@ namespace {
 
 int main()
 {
+    std::cout << std::boolalpha;
+
     std::vector<int> test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
     //std::vector test2 {"hello","my","friend"};
 
@@ -128,12 +130,14 @@ int main()
 
     std::cout << "modified original, and unmodified copy, below\n";
     auto start_copy = copy_list(start, p);
-    std::cout << std::boolalpha << list_equal(start, start_copy) << "\n";
+    std::cout << list_equal(start, start_copy) << ' '
+              << list_equal(start, start_copy) << '\n';
     //start->next->next->element *= 1000;
     start->next->next->next->next = nullptr;
     print_list(start);
     print_list(start_copy);
-    std::cout << list_equal(start, start_copy) << "\n";
+    std::cout << list_equal(start, start_copy) << ' '
+              << list_equal(start, start_copy) << '\n';
 
 
     //std::vector<Foo> test3(5);
