@@ -100,8 +100,10 @@ int main()
 
     Pool <Lnode<int>> p;
     Lnode<int>* start = make_list(test, p);
+    //Lnode<int>* copytest = make_list(test, p);
     print_list(start);
     std::cout << "print fucntion output above\n";
+
 
     auto start2 = make_list_fwd(test, p);
     auto start3 = make_list_fwd_eliah(test, p);
@@ -123,6 +125,13 @@ int main()
             std::cout << value << " not found.\n";
         }
     }
+
+    std::cout << "modified original, and unmodified copy, below\n";
+    auto start_copy = copy_list(start, p);
+    start->next->next->element *= 1000;
+    start->next->next->next->next = nullptr;
+    print_list(start);
+    print_list(start_copy);
 
     //std::vector<Foo> test3(5);
 
