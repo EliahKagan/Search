@@ -55,7 +55,7 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 }
 
 template <typename T>
-Lnode<T>* reverse_list(const Lnode<T>* list)
+Lnode<T>* reverse_list(Lnode<T>* list)
 {
     Lnode<T>* head = nullptr;
     while (list != nullptr)
