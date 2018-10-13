@@ -128,12 +128,15 @@ Lnode<T>* search_list_eliah(Lnode<T>* list, const T& value)
 template <typename T>
 bool list_equal(Lnode<T>* list1, Lnode<T>* list2)
 {
-    while(list1 != nullptr)
+    while(list1 != nullptr && list2 != nullptr)
     {
+        if (list1 -> element != list2 -> element)
+            return false;
 
-        list = list->next;
+        list1 = list1->next;
+        list2 = list2->next;
     }
-    return true;
+    return list1 == nullptr && list2 == nullptr;
 }
 
 #endif // ! LNODESTRUCT
