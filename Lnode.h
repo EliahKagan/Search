@@ -169,7 +169,20 @@ bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
 template <typename T, typename F>
 std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
 {
+    Lnode<T> fail_sentinel {0, list};
+    auto pos = &fail_sentinel;
 
+    Lnode<T> pass_sentinel {};
+    auto passpos = &passlistsentinel;
+
+    while (pos->next != nullptr)
+    {
+        if (f(pos->next->element))
+        {
+            pos->next = pos->next->next;
+        }
+
+    }
 }
 
 
