@@ -2,6 +2,7 @@
 #define LNODESTRUCT
 
 #include "Pool.h"
+#include <iostream>
 #include <vector>
 
 template <typename T>
@@ -40,6 +41,17 @@ Lnode<T>* copy_list(const Lnode<T>* list, Pool<Lnode<T>>& p)
     }
 
     return sentinel.next;
+}
+
+template <typename T>
+void print_list(const Lnode<T>* list)
+{
+    while (list != nullptr)
+    {
+        std::cout << list->element << ' ';
+        list = list->next;
+    }
+    std::cout << '\n';
 }
 
 template <typename T>
