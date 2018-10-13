@@ -166,6 +166,7 @@ bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
     return true;
 }
 
+// Returns (satisfy predicate, don't satisfy predicate).
 template <typename T, typename F>
 std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
 {
@@ -177,12 +178,16 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
 
     while (pos->next != nullptr)
     {
-        if (f(pos->next->element))
+        if(f(pos->next->element))
         {
+            passpos->next = pos->next;
+            passpos = passpos->next;
             pos->next = pos->next->next;
         }
-
+        else
+            pos = pos->next;
     }
+    return (make_pair(pass_sentinel.next, fail_sentinel.next));
 }
 
 
