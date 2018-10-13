@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include <iterator>
+#include <utility>
 #include <vector>
 #include "Pool-test.h"
 #include "Lnode.h"
@@ -141,6 +142,11 @@ int main()
 
     start = reverse_list(start);
     print_list(start);
+
+
+    std::pair splitpair = split_list(start_copy, [](auto a){return a > 5;});
+    print_list(splitpair.first);
+    print_list(splitpair.second);
 
 
     //std::vector<Foo> test3(5);

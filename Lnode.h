@@ -195,5 +195,4 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
     return std::make_pair(pass_sentinel.next, fail_sentinel.next);
 }
 
-
 #endif // ! LNODESTRUCT
