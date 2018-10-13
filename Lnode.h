@@ -26,6 +26,23 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 }
 
 template <typename T>
+Lnode<T>* copy_list(const Lnode<T>* list, Pool<Lnode<T>>& p)
+{
+    Lnode<T> sentinel {};
+    auto cur = &sentinel;
+
+    while (list != nullptr)
+    {
+        cur->next = p.newmem();
+        cur = cur->next;
+        cur->element = list->element;
+        list = list->next;
+    }
+
+    return sentinel.next;
+}
+
+template <typename T>
 Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
     Lnode<T>* head = nullptr;
