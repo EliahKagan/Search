@@ -190,7 +190,7 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
     }
 
     passpos->next = nullptr;
-    assert(failpos->next == nullptr);
+    assert(pos->next == nullptr);
 
     return std::make_pair(pass_sentinel.next, fail_sentinel.next);
 }
