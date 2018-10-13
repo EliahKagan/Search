@@ -13,17 +13,14 @@ struct Lnode
 };
 
 template <typename T>
-Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
+void print_list(const Lnode<T>* list)
 {
-    Lnode<T>* head = nullptr;
-    for (auto it = v.rbegin(); it != v.rend(); ++it)
+    while (list != nullptr)
     {
-        Lnode<T>* temp = p.newmem();
-        temp->element = *it;
-        temp->next = head;
-        head = temp;
+        std::cout << list->element << ' ';
+        list = list->next;
     }
-    return head;
+    std::cout << '\n';
 }
 
 template <typename T>
@@ -44,14 +41,17 @@ Lnode<T>* copy_list(const Lnode<T>* list, Pool<Lnode<T>>& p)
 }
 
 template <typename T>
-void print_list(const Lnode<T>* list)
+Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
-    while (list != nullptr)
+    Lnode<T>* head = nullptr;
+    for (auto it = v.rbegin(); it != v.rend(); ++it)
     {
-        std::cout << list->element << ' ';
-        list = list->next;
+        Lnode<T>* temp = p.newmem();
+        temp->element = *it;
+        temp->next = head;
+        head = temp;
     }
-    std::cout << '\n';
+    return head;
 }
 
 template <typename T>
@@ -123,6 +123,17 @@ Lnode<T>* search_list_eliah(Lnode<T>* list, const T& value)
 {
     while (list && list->element != value) list = list->next;
     return list;
+}
+
+template <typename T>
+bool list_equal(Lnode<T>* list1, Lnode<T>* list2)
+{
+    while(list1 != nullptr)
+    {
+
+        list = list->next;
+    }
+    return true;
 }
 
 #endif // ! LNODESTRUCT
