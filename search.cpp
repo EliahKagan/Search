@@ -149,6 +149,7 @@ int main()
 
     auto sorted = make_list(std::vector{
                     1, 2, 7, 9, 14, 15, 19, 20, 22, 31, 36, 44, 57, 61}, p);
+    print_list(sorted);
     auto [evens, odds] = split_list(sorted, [](auto x) { return x % 2 == 0; });
     print_list(evens);
     print_list(odds);
