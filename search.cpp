@@ -156,6 +156,8 @@ int main()
     sorted = merge_lists(odds, evens);
     print_list(sorted);
 
+    print_list(merge_lists(nullptr, sorted));
+
 
 
 
