@@ -279,8 +279,8 @@ bool has_cycle(const Lnode<T>* list)
 template <typename T>
 bool has_cycle_floyd(const Lnode<T>* list)
 {
-    Lnode<T>* slow = list;
-    Lnode<T>* fast = list;
+    const Lnode<T>* slow = list;
+    const Lnode<T>* fast = list;
 
     for(; fast != nullptr && (fast = fast->next) != nullptr; slow = slow->next, fast = fast->next->next)
     {
