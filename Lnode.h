@@ -242,5 +242,25 @@ Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
     return top_sentinel.next;
 }
 
+template<typename T>
+Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
+{
+    Lnode<T> sentinel {};
+    auto pos = &sentinel;
+
+    for (; head1 && head2; pos = pos->next) {
+        if (head2->element < head1->element) {
+            pos->next = head2;
+            head2 = head2->next;
+        } else {
+            pos->next = head1;
+            head1 = head1->next;
+        }
+    }
+
+    pos->next = (head1 ? head1 : head2);
+    return sentinel.next;
+}
+
 
 #endif // ! LNODESTRUCT
