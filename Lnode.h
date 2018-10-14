@@ -292,4 +292,16 @@ bool has_cycle_floyd(const Lnode<T>* list)
     return false;
 }
 
+template<typename T>
+bool has_cycle_floyd_eliah(const Lnode<T>* list)
+{
+    for (auto fast = list; fast && (fast = fast->next); fast = fast->next) {
+        if (list == fast) return true;
+        if (!fast) return false;
+        list = list->next;
+    }
+
+    return false;
+}
+
 #endif // ! LNODESTRUCT
