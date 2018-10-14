@@ -169,7 +169,7 @@ int main()
     auto [evens1, odds1] = split_list_eliah(sorted1, is_even);
     print_list(evens1);
     print_list(odds1);
-    sorted1 = merge_lists(odds1, evens1); // TODO: use merge_lists_eliah
+    sorted1 = merge_lists(odds1, evens1);
     print_list(sorted1);
 
     std::cout << '\n';
