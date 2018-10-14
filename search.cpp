@@ -176,8 +176,8 @@ int main()
     constexpr Lnode<int>* empty {};
     print_list(merge_lists(empty, sorted));
     print_list(merge_lists(sorted, empty));
-    //print_list(merge_lists_eliah(empty, sorted));
-    //print_list(merge_lists_eliah(sorted, empty));
+    print_list(merge_lists_eliah(empty, sorted));
+    print_list(merge_lists_eliah(sorted, empty));
 
     std::cout << '\n';
     auto sorted2 = make_list(std::vector{10, 15, 15, 20, 22, 22, 22, 25, 30}, p);
