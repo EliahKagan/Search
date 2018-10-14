@@ -93,22 +93,22 @@ namespace {
 
         return -1;
     }
-}
 
-template <typename T>
-std::vector<T> unique (const std::vector<T>& invector)
-{
-    std::unordered_set<T> s;
-    std::vector<T> outvector;
-    for (auto &i: invector)
+    template <typename T>
+    std::vector<T> unique (const std::vector<T>& invector)
     {
-       //if the element isn't already in the set, copy to outvector
-        if (s.find(i) == s.end())
-            outvector.push_back(i);
-        //insert into set
-        s.insert(i);
+        std::unordered_set<T> s;
+        std::vector<T> outvector;
+        for (auto &i: invector)
+        {
+        //if the element isn't already in the set, copy to outvector
+            if (s.find(i) == s.end())
+                outvector.push_back(i);
+            //insert into set
+            s.insert(i);
+        }
+        return outvector;
     }
-    return outvector;
 }
 
 int main()
