@@ -143,10 +143,15 @@ int main()
     print_list(start);
 
     std::cout << '\n';
-    std::pair splitpair = split_list(start_copy, [](auto a){return a > 5;});
+    auto start_copy2 = copy_list(start_copy, p);
+    auto splitpair = split_list(start_copy, [](auto x) { return x > 5; });
     print_list(splitpair.first);
     print_list(splitpair.second);
+    auto splitpair2 = split_list_eliah(start_copy2, [](auto x) { return x > 5; });
+    print_list(splitpair2.first);
+    print_list(splitpair2.second);
 
+    std::cout << '\n';
     auto sorted = make_list(std::vector{
                     1, 2, 7, 9, 14, 15, 19, 20, 22, 31, 36, 44, 57, 61}, p);
     print_list(sorted);
