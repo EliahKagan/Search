@@ -208,12 +208,17 @@ Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
     {
         if(bpos->next->element < tpos->next->element)
         {
+            auto bnext = bpos->next->next;
             bpos->next->next = tpos->next;
             tpos->next = bpos->next;
-
+            bpos->next = bnext;
         }
+        else
+            tpos = tpos -> next;
     }
-
+    if (tpos->next == nullptr)
+        tpos->next = bpos->next;
+    return top_sentinel.next;
 }
 
 
