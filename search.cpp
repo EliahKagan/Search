@@ -221,11 +221,11 @@ int main()
 
     std::cout << '\n';
     auto cyclic2 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
-    std::cout << has_cycle_floyd_eliah(cyclic2) << '\n';
+    std::cout << has_cycle_floyd_alt(cyclic2) << '\n';
     auto head2 = cyclic2;
     while (head2->next) head2 = head2->next; // go to the last node
     head2->next = cyclic2->next->next->next;
-    std::cout << has_cycle_floyd_eliah(cyclic2) << '\n';
+    std::cout << has_cycle_floyd_alt(cyclic2) << '\n';
 
 
     //std::vector<Foo> test3(5);
