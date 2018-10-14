@@ -151,24 +151,40 @@ int main()
     print_list(splitpair2.first);
     print_list(splitpair2.second);
 
-    std::cout << '\n';
     auto sorted = make_list(std::vector{
                     1, 2, 7, 9, 14, 15, 19, 20, 22, 31, 36, 44, 57, 61}, p);
+    auto sorted1 = copy_list(sorted, p);
+    constexpr auto is_even = [](auto x) { return x % 2 == 0; };
+
+    std::cout << '\n';
     print_list(sorted);
-    auto [evens, odds] = split_list(sorted, [](auto x) { return x % 2 == 0; });
+    auto [evens, odds] = split_list(sorted, is_even);
     print_list(evens);
     print_list(odds);
     sorted = merge_lists(odds, evens);
     print_list(sorted);
 
+    std::cout << '\n';
+    print_list(sorted1);
+    auto [evens1, odds1] = split_list_eliah(sorted1, is_even);
+    print_list(evens1);
+    print_list(odds1);
+    sorted1 = merge_lists(odds1, evens1); // TODO: use merge_lists_eliah
+    print_list(sorted1);
+
+    std::cout << '\n';
     constexpr Lnode<int>* empty {};
     print_list(merge_lists(empty, sorted));
     print_list(merge_lists(sorted, empty));
+    //print_list(merge_lists_eliah(empty, sorted));
+    //print_list(merge_lists_eliah(sorted, empty));
 
+    std::cout << '\n';
     auto sorted2 = make_list(std::vector{10, 15, 15, 20, 22, 22, 22, 25, 30}, p);
     auto sorted3 = make_list(std::vector{5, 15, 20, 22, 25}, p);
     print_list(merge_lists(copy_list(sorted2, p), copy_list(sorted3, p)));
     print_list(merge_lists(sorted3, sorted2));
+    // TODO: also test merge_lists_eliah
 
 
     //std::vector<Foo> test3(5);
