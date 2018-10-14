@@ -264,13 +264,16 @@ Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
 }
 
 template <typename T>
-bool has_cycle(Lnode<T>* list)
+bool has_cycle(const Lnode<T>* list)
 {
-    std::unordered_set<T> s;
+    std::unordered_set<const Lnode<T>*> s;
     for(; list != nullptr; list = list->next)
     {
-
+        if (s.find(list) != s.end())
+            return true;
+        s.insert(list);
     }
+    return false;
 }
 
 #endif // ! LNODESTRUCT
