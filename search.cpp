@@ -162,7 +162,7 @@ int main()
 
     auto sorted2 = make_list(std::vector{10, 15, 15, 20, 22, 22, 22, 25, 30}, p);
     auto sorted3 = make_list(std::vector{5, 15, 20, 22, 25}, p);
-    print_list(merge_lists(copy_list(sorted2), copy_list(sorted3)));
+    print_list(merge_lists(copy_list(sorted2, p), copy_list(sorted3, p)));
     print_list(merge_lists(sorted3, sorted2));
 
 
