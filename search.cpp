@@ -211,6 +211,14 @@ int main()
     print_list(merge_lists(copy_list(sorted2, p), copy_list(sorted3, p)));
     print_list(merge_lists(sorted3, sorted2));
 
+    std::cout << '\n';
+    auto cyclic = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
+    std::cout << has_cycle(cyclic) << '\n';
+    auto head = cyclic;
+    while (head->next) head = head->next; // go to the last node
+    head->next = cyclic->next->next->next;
+    std::cout << has_cycle(cyclic) << '\n';
+
     //std::vector<Foo> test3(5);
 
     //std::cout << vindex(test, 2) << '\n';
@@ -220,6 +228,7 @@ int main()
 
     //test_pool();
 
+    std::cout << '\n';
     print(unique(std::vector{
             10, -7, 3, 2, 4, 10, 10, 10, 10, 10, 7, 10, 10, 99, 8, 2, 7, 3, 1}));
 }
