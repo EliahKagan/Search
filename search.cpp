@@ -107,7 +107,6 @@ int main()
     print_list(start);
     std::cout << "print fucntion output above\n";
 
-
     auto start2 = make_list_fwd(test, p);
     auto start3 = make_list_fwd_eliah(test, p);
 
@@ -147,6 +146,16 @@ int main()
     std::pair splitpair = split_list(start_copy, [](auto a){return a > 5;});
     print_list(splitpair.first);
     print_list(splitpair.second);
+
+    auto sorted = make_list(std::vector{
+                    1, 2, 7, 9, 14, 15, 19, 20, 22, 31, 36, 44, 57, 61}, p);
+    auto [evens, odds] = split_list(sorted, [](auto x) { return x % 2 == 0; });
+    print_list(evens);
+    print_list(odds);
+    print_list(merge_list(odds, even));
+
+
+
 
 
     //std::vector<Foo> test3(5);
