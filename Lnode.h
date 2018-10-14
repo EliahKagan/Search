@@ -4,6 +4,7 @@
 #include "Pool.h"
 #include <cassert>
 #include <iostream>
+#include <unordered_set>
 #include <utility>
 #include <vector>
 
@@ -242,7 +243,7 @@ Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
     return top_sentinel.next;
 }
 
-template<typename T>
+template <typename T>
 Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
 {
     Lnode<T> sentinel {};
@@ -260,6 +261,16 @@ Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
 
     pos->next = (head1 ? head1 : head2);
     return sentinel.next;
+}
+
+template <typename T>
+bool has_cycle(Lnode<T>* list)
+{
+    std::unordered_set<T> s;
+    for(; list != nullptr; list = list->next)
+    {
+
+    }
 }
 
 #endif // ! LNODESTRUCT
