@@ -6,6 +6,7 @@
 #include <iterator>
 #include <utility>
 #include <vector>
+#include <unordered_set>
 #include "Pool-test.h"
 #include "Lnode.h"
 
@@ -92,6 +93,22 @@ namespace {
 
         return -1;
     }
+}
+
+template <typename T>
+std::vector<T> unique (const std::vector<T>& invector)
+{
+    std::unordered_set<T> s;
+    std::vector<T> outvector;
+    for (auto &i: invector)
+    {
+       //if the element isn't already in the set, copy to outvector
+        if (s.find(i) == s.end())
+            outvector.push_back(i);
+        //insert into set
+        s.insert(i);
+    }
+    return outvector;
 }
 
 int main()
@@ -194,8 +211,6 @@ int main()
     print_list(merge_lists(copy_list(sorted2, p), copy_list(sorted3, p)));
     print_list(merge_lists(sorted3, sorted2));
 
-
-
     //std::vector<Foo> test3(5);
 
     //std::cout << vindex(test, 2) << '\n';
@@ -204,4 +219,6 @@ int main()
     //std::cout << vindex_alt(test, 20) << '\n';
 
     //test_pool();
+
+
 }

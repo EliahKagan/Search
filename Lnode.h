@@ -262,5 +262,4 @@ Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
     return sentinel.next;
 }
 
-
 #endif // ! LNODESTRUCT
