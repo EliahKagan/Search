@@ -156,8 +156,9 @@ int main()
     sorted = merge_lists(odds, evens);
     print_list(sorted);
 
-    print_list(merge_lists(static_cast<Lnode<int>*>(nullptr), sorted));
-
+    constexpr Lnode<int>* empty {};
+    print_list(merge_lists(empty, sorted));
+    print_list(merge_lists(sorted, empty));
 
 
 
