@@ -153,7 +153,7 @@ int main()
     auto [evens, odds] = split_list(sorted, [](auto x) { return x % 2 == 0; });
     print_list(evens);
     print_list(odds);
-    print_list(merge_list(odds, evens));
+    print_list(merge_lists(odds, evens));
 
 
 
