@@ -195,6 +195,27 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
     return std::make_pair(pass_sentinel.next, fail_sentinel.next);
 }
 
+// Returns (satisfy predicate, don't satisfy predicate).
+template<typename T, typename F>
+std::pair<Lnode<T>*, Lnode<T>*> split_list_eliah(Lnode<T>* list, F f)
+{
+    Lnode<T> true_sentinel {}, false_sentinel {};
+    auto true_pos = &true_sentinel, false_pos = &false_sentinel;
+
+    for (; list; list = list->next) {
+        if (f(list->element)) {
+            true_pos->next = list;
+            true_pos = true_pos->next;
+        } else {
+            false_pos->next = list;
+            false_pos = false_pos->next;
+        }
+    }
+
+    true_pos->next = false_pos->next = nullptr;
+    return {true_sentinel.next, false_sentinel.next};
+}
+
 template <typename T>
 Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
 {
