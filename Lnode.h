@@ -276,4 +276,20 @@ bool has_cycle(const Lnode<T>* list)
     return false;
 }
 
+template <typename T>
+bool has_cycle_floyd(const Lnode<T>* list)
+{
+    Lnode<T>* slow = list;
+    Lnode<T>* fast = list;
+
+    for(; fast != nullptr && (fast = fast->next) != nullptr; slow = slow->next, fast = fast->next->next)
+    {
+        if (slow == fast)
+            return true;
+        if(fast->next == nullptr)
+            return false;
+    }
+    return false;
+}
+
 #endif // ! LNODESTRUCT
