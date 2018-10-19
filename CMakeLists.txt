@@ -6,7 +6,12 @@ enable_testing()
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Search search.cpp Pool.cpp Pool.h Pool-test.cpp Pool-test.h Lnode.h Lnode.cpp)
+add_executable(Search
+    search.cpp
+    Lnode.h Lnode.cpp
+    Pool.cpp Pool.h
+    Pool-test.cpp Pool-test.h
+)
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything -Wno-c++98-compat -Wno-padded -Wno-unused-function -Wno-unused-template -Wno-unused-member-function -Wno-exit-time-destructors")
