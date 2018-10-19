@@ -126,6 +126,7 @@ int main()
 
     auto start2 = make_list_fwd(test, p);
     auto start3 = make_list_fwd_eliah(test, p);
+    assert(list_equal(start2, start3));
 
     std::vector<int> test2 = make_vector(start);
 
