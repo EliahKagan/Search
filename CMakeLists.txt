@@ -14,7 +14,7 @@ add_executable(Search
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything -Wno-c++98-compat -Wno-padded -Wno-unused-function -Wno-unused-template -Wno-unused-member-function -Wno-exit-time-destructors")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Weverything -Wno-c++98-compat -Wno-padded -Wno-unused-member-function -Wno-exit-time-destructors")
 endif()
 
 if(MSVC)

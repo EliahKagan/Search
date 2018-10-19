@@ -34,18 +34,27 @@ namespace {
     {
         return out << static_cast<const void*>(&noisy);
     }
+
+    constexpr auto interactive = false;
 }
 
 void test_pool()
 {
     std::cout << '\n';
 
-    Pool<Noisy> pool;
-    for (auto i = 5; i != 0; --i) {
-        auto& noisy = *pool.newmem();
-        std::cout << '[' << noisy << "]\n";
+    {
+        Pool<Noisy> pool;
+        for (auto i = 5; i != 0; --i) {
+            auto& noisy = *pool.newmem();
+            std::cout << '[' << noisy << "]\n";
+        }
+
+        if (interactive) {
+            std::cout << "\nPress enter now... ";
+            std::cin.get();
+        }
+        else std::cout << "Destroying pool...\n";
     }
 
-    std::cout << "\nPress enter now... ";
-    std::cin.get();
+    std::cout << '\n';
 }

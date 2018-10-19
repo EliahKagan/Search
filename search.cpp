@@ -116,23 +116,40 @@ int main()
     std::cout << std::boolalpha;
 
     std::vector<int> test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
-    //std::vector test2 {"hello","my","friend"};
+    //std::vector test1 {"hello","my","friend"};
 
     Pool <Lnode<int>> p;
     Lnode<int>* start = make_list(test, p);
-    //Lnode<int>* copytest = make_list(test, p);
+    Lnode<int>* copytest = make_list(test, p);
+    assert(list_equal(start, copytest));
     print_list(start);
-    std::cout << "print fucntion output above\n";
+    std::cout << "print function output above\n";
 
     auto start2 = make_list_fwd(test, p);
     auto start3 = make_list_fwd_eliah(test, p);
     assert(list_equal(start2, start3));
 
     std::vector<int> test2 = make_vector(start);
+    auto test2a = test2, test2b = test2, test2c = test2;
 
     print(test2);
     vector_sort(test2);
-    print(test2);
+    vector_sort_alt(test2a);
+    std::sort(begin(test2b), end(test2b), mycompare);
+    std::sort(begin(test2c), end(test2c), eliah_compare);
+
+    for (const auto& testvec : {test2, test2a, test2b, test2c}) print(testvec);
+    std::cout << '\n';
+
+    std::vector<Foo> test3 (5);
+    print(test3);
+
+    std::cout << vindex(test, 2) << '\n';
+    std::cout << vindex_alt(test, 2) << '\n';
+    std::cout << vindex(test, 20) << '\n';
+    std::cout << vindex_alt(test, 20) << '\n';
+
+    test_pool();
 
     for (const auto value : {3, 10}) {
         const auto node = search_list(start, value);
@@ -227,16 +244,6 @@ int main()
     while (head2->next) head2 = head2->next; // go to the last node
     head2->next = cyclic2->next->next->next;
     std::cout << has_cycle_floyd_alt(cyclic2) << '\n';
-
-
-    //std::vector<Foo> test3(5);
-
-    //std::cout << vindex(test, 2) << '\n';
-    //std::cout << vindex_alt(test, 2) << '\n';
-    //std::cout << vindex(test, 20) << '\n';
-    //std::cout << vindex_alt(test, 20) << '\n';
-
-    //test_pool();
 
     std::cout << '\n';
     print(unique(std::vector{
