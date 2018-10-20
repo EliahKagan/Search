@@ -341,5 +341,15 @@ bool lists_meet(const Lnode<T>* lista, const Lnode<T>* listb)
     return false;
 }
 
+template <typename T>
+bool lists_meet_o1(const Lnode<T>* lista, const Lnode<T>* listb)
+{
+    auto asize = list_size(lista);
+    auto bsize = list_size(listb);
+
+    if ()
+
+
+}
 
 #endif // ! LNODESTRUCT
