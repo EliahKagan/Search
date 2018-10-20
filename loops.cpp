@@ -5,6 +5,7 @@
 #include <iostream>
 #include <numeric>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 using namespace std;
@@ -61,7 +62,18 @@ namespace {
         return result;
     }
 
+    template<typename T>
+    constexpr bool same(const T&) noexcept
+    {
+        return true;
+    }
 
+    template<typename T, typename U, typename... Vs>
+    constexpr bool same(const T& x, const U& y, const Vs&... zs)
+    {
+        static_assert(std::is_same_v<T, U>);
+        return x == y && same(y, zs...);
+    }
 }
 
 void test_loops()
