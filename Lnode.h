@@ -25,7 +25,11 @@ size_t list_size(const Lnode<T>* list)
     return count;
 }
 
-
+template <typename T>
+void advance_list_by(const Lnode<T>* list, size_t num)
+{
+    for (int i = 0; i < num; ++i) list = list->next;
+}
 
 template <typename T>
 void print_list(const Lnode<T>* list)
