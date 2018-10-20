@@ -25,6 +25,8 @@ size_t list_size(const Lnode<T>* list)
     return count;
 }
 
+
+
 template <typename T>
 void print_list(const Lnode<T>* list)
 {
@@ -347,7 +349,18 @@ bool lists_meet_o1(const Lnode<T>* lista, const Lnode<T>* listb)
     auto asize = list_size(lista);
     auto bsize = list_size(listb);
 
-    if ()
+    if (asize < bsize)
+    {
+        auto diff = bsize - asize;
+
+    }
+    else
+    {
+        auto diff = asize - bsize;
+
+    }
+
+
 
 
 }
