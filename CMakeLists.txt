@@ -8,10 +8,12 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Search
     search.cpp
-    Lnode.h Lnode.cpp
-    loops.h loops.cpp
+    Lnode.cpp Lnode.h
+    loops.cpp loops.h
     Pool.cpp Pool.h
     Pool-test.cpp Pool-test.h
+    Tnode.cpp Tnode.h
+    tree-test.cpp tree-test.h
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
