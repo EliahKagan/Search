@@ -10,6 +10,7 @@
 #include "Pool-test.h"
 #include "Lnode.h"
 #include "loops.h"
+#include "tree-test.h"
 
 namespace {
     class Foo {
@@ -274,4 +275,6 @@ int main()
     nhead->next = mlist2; //they should meet now
     std::cout << lists_meet_o1(mlist1, mlist2) << ' ' << lists_meet_o1(mlist2, mlist1) << '\n';
     std::cout << lists_meet_o1(empty, mlist1) << ' ' << lists_meet_o1(mlist1, empty) << '\n';
+
+    test_trees();
 }
