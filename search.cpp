@@ -265,6 +265,7 @@ int main()
     std::cout << list_size(nmlist2) << '\n'; // should be 8
     std::cout << list_size(sorted) << '\n'; // should be 14
     std::cout << list_size(empty) << '\n'; // should be 0
+    std::cout << '\n';
 
     auto mlist1 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
     auto mlist2 = make_list(std::vector{3, 4, 5, 6, 7, 8, 9, 10}, p);
