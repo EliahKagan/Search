@@ -322,14 +322,13 @@ bool has_cycle_floyd_alt(const Lnode<T>* list)
 template<typename T>
 bool lists_meet(const Lnode<T>* lista, const Lnode<T>* listb)
 {
-    std::unordered_set<const Lnode<T>*> s
-    for(; list != nullptr; list = list->next)
-    {
-        if (s.find(list) != s.end())
+    std::unordered_set<const Lnode<T>*> s;
+    for(; lista != nullptr; lista = lista->next)
+        s.insert(lista);
+    for (; listb != nullptr; listb = listb->next)
+          if (s.find(listb) != s.end())
             return true;
-        s.insert(list);
-    }
-
+    return false;
 }
 
 
