@@ -251,4 +251,12 @@ int main()
             10, -7, 3, 2, 4, 10, 10, 10, 10, 10, 7, 10, 10, 99, 8, 2, 7, 3, 1}));
 
     test_loops();
+
+    std::cout << '\n';
+    auto nmlist1 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
+    auto nmlist2 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
+    std::cout << lists_meet(nmlist1, nmlist2) << '\n';
+    auto mhead = nmlist1->next->next->next;
+    mhead->next = nmlist2; //they should meet now
+    std::cout << lists_meet(nmlist1, nmlist2) << '\n';
 }
