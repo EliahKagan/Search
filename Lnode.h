@@ -355,15 +355,17 @@ bool lists_meet_o1(const Lnode<T>* lista, const Lnode<T>* listb)
     auto bsize = list_size(listb);
 
     if (asize < bsize)
-    {
-        auto diff = bsize - asize;
-
-    }
+        listb = advance_list_by(listb, bsize - asize);
     else
-    {
-        auto diff = asize - bsize;
+        lista = advance_list_by(lista,asize - bsize);
 
-    }
+    for(; lista != nullptr && listb != nullptr; lista = lista->next, listb = listb->next)
+        if (lista == listb)
+            return true;
+    return false;
+
+
+
 
 
 
