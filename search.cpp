@@ -9,6 +9,7 @@
 #include <vector>
 #include "Pool-test.h"
 #include "Lnode.h"
+#include "loops.h"
 
 namespace {
     class Foo {
@@ -248,4 +249,6 @@ int main()
     std::cout << '\n';
     print(unique(std::vector{
             10, -7, 3, 2, 4, 10, 10, 10, 10, 10, 7, 10, 10, 99, 8, 2, 7, 3, 1}));
+
+    test_loops();
 }

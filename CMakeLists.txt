@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(Search
     search.cpp
     Lnode.h Lnode.cpp
+    loops.h loops.cpp
     Pool.cpp Pool.h
     Pool-test.cpp Pool-test.h
 )
