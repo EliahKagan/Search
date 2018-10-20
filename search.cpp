@@ -251,7 +251,7 @@ int main()
     print(unique(std::vector{
             10, -7, 3, 2, 4, 10, 10, 10, 10, 10, 7, 10, 10, 99, 8, 2, 7, 3, 1}));
 
-    test_loops();
+
 
     std::cout << '\n';
     auto nmlist1 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
@@ -276,5 +276,6 @@ int main()
     std::cout << lists_meet_o1(mlist1, mlist2) << ' ' << lists_meet_o1(mlist2, mlist1) << '\n';
     std::cout << lists_meet_o1(empty, mlist1) << ' ' << lists_meet_o1(mlist1, empty) << '\n';
 
+    test_loops();
     test_trees();
 }
