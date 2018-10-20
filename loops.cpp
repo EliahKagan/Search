@@ -9,6 +9,16 @@ using namespace std;
 using namespace std::literals;
 
 namespace {
+
+
+    template <typename T>
+    T for_each_test(const vector<T> &a)
+    {
+        T result {};
+        for_each(a.begin(), a.end(), [&result](const T &t){result += t;});
+        return result;
+    }
+
     template <typename T>
     T range_for(const vector<T> &a)
     {
@@ -44,13 +54,6 @@ namespace {
             result += a[i];
         return result;
     }
-
-    template <typename T>
-    T for_each_test(const vector<T> &a)
-    {
-        for_each(a.begin(), a.end(),
-    }
-
 }
 
 void test_loops()
