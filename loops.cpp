@@ -8,10 +8,30 @@ using namespace std::literals;
 
 namespace {
     template <typename T>
-    T range_for(vector<T> a)
+    T range_for(const vector<T> &a)
     {
-
+        T result {};
+        for(auto &i: a)
+            result += i;
+        return result;
     }
+
+    template <typename T>
+    T typical_for(const vector<T> &a)
+    {
+        T result {};
+        for (auto i = a.begin(); i != a.end(); ++i)
+            result += *i;
+        return result;
+    }
+
+    template <typename T>
+    T for_indices(const vector<T> &a)
+    {
+        T result {};
+        for(int i)
+    }
+
 }
 
 void test_loops()
