@@ -1,6 +1,7 @@
 #include "loops.h"
 
 #include <algorithm>
+#include <complex>
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -59,10 +60,14 @@ namespace {
             result += a[i];
         return result;
     }
+
+
 }
 
 void test_loops()
 {
     vector a {10, 7, 3, 9, -4, 14, 27, 13, -27, 13, 17, 99, 103};
     vector b {"foo"s, "bar"s, "baz"s, "quux"s, "foobar"s};
+    vector c {4.0+1.2i, -2.7+0.4i, 0.0+9.1i, 0.0-1.0i};
+    vector<float> d;
 }
