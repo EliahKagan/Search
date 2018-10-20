@@ -96,4 +96,9 @@ void test_loops()
     vector b {"foo"s, "bar"s, "baz"s, "quux"s, "foobar"s};
     vector c {4.0+1.2i, -2.7+0.4i, 0.0+9.1i, 0.0-1.0i};
     vector<float> d;
+
+    test(a);
+    test(b);
+    test(c);
+    test(d);
 }
