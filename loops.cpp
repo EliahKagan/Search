@@ -1,4 +1,6 @@
 #include "loops.h"
+
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -41,6 +43,12 @@ namespace {
         for(int i = 0; i < a.size(); ++i)
             result += a[i];
         return result;
+    }
+
+    template <typename T>
+    T for_each_test(const vector<T> &a)
+    {
+        for_each(a.begin(), a.end(),
     }
 
 }
