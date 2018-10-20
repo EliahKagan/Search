@@ -29,7 +29,18 @@ namespace {
     T for_indices(const vector<T> &a)
     {
         T result {};
-        for(int i)
+        for(int i = 0; i < (a.end()-a.begin()); ++i)
+            result += a[i];
+        return result;
+    }
+
+    template <typename T>
+    T for_indices_size(const vector<T> &a)
+    {
+        T result {};
+        for(int i = 0; i < a.size(); ++i)
+            result += a[i];
+        return result;
     }
 
 }
