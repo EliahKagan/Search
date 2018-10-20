@@ -97,7 +97,6 @@ void test_loops()
     vector c {4.0+1.2i, -2.7+0.4i, 0.0+9.1i, 0.0-1.0i};
     vector<float> d;
 
-    cout << '\n';
     test(a);
     test(b);
     test(c);

@@ -13,6 +13,13 @@
 #include "tree-test.h"
 
 namespace {
+    void hr()
+    {
+        std::cout << "\n\n";
+        for (auto i = 100; i != 0; --i) std::cout << '=';
+        std::cout << "\n\n\n";
+    }
+
     class Foo {
     public:
         Foo() = default;
@@ -278,6 +285,8 @@ int main()
     std::cout << std::boolalpha;
 
     test_loops();
+    hr();
     test_lists();
+    hr();
     test_trees();
 }
