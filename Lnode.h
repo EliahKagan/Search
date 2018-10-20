@@ -318,10 +318,17 @@ bool has_cycle_floyd_alt(const Lnode<T>* list)
     return false;
 }
 
-// Checks if list share any nodes. Assumes they have no cycles.
+// Checks if two lists share any nodes. Assumes they have no cycles.
 template<typename T>
 bool lists_meet(const Lnode<T>* lista, const Lnode<T>* listb)
 {
+    std::unordered_set<const Lnode<T>*> s
+    for(; list != nullptr; list = list->next)
+    {
+        if (s.find(list) != s.end())
+            return true;
+        s.insert(list);
+    }
 
 }
 
