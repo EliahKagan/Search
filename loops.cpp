@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <vector>
 
@@ -9,7 +10,11 @@ using namespace std;
 using namespace std::literals;
 
 namespace {
-
+    template <typename T>
+    T using_accumulate(const vector<T> &a)
+    {
+        return accumulate(a.begin(), a.end(), T{});
+    }
 
     template <typename T>
     T for_each_test(const vector<T> &a)
