@@ -260,4 +260,11 @@ int main()
     mhead->next = nmlist2; //they should meet now
     std::cout << lists_meet(nmlist1, nmlist2) << ' ' << lists_meet(nmlist2, nmlist1) << '\n';
     std::cout << lists_meet(empty, nmlist1) << ' ' << lists_meet(nmlist1, empty) << '\n';
+
+    std::cout<< '\n';
+    std::cout<<list_size(nmlist2) << '\n'; //should be 8
+    std::cout<<list_size(sorted) << '\n'; //should be 14
+
+
+
 }
