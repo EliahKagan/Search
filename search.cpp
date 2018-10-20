@@ -112,7 +112,7 @@ namespace {
         return outvector;
     }
 
-    int test_lists()
+    void test_lists()
     {
         std::vector<int> test {8, 1, 3, 7, 4, 5, 2, 9, 0, 6};
         //std::vector test1 {"hello","my","friend"};
@@ -270,8 +270,6 @@ namespace {
         nhead->next = mlist2; //they should meet now
         std::cout << lists_meet_o1(mlist1, mlist2) << ' ' << lists_meet_o1(mlist2, mlist1) << '\n';
         std::cout << lists_meet_o1(empty, mlist1) << ' ' << lists_meet_o1(mlist1, empty) << '\n';
-
-
     }
 }
 
