@@ -357,7 +357,7 @@ bool lists_meet_o1(const Lnode<T>* lista, const Lnode<T>* listb)
     if (asize < bsize)
         listb = advance_list_by(listb, bsize - asize);
     else
-        lista = advance_list_by(lista,asize - bsize);
+        lista = advance_list_by(lista, asize - bsize);
 
     for(; lista != nullptr && listb != nullptr; lista = lista->next, listb = listb->next)
         if (lista == listb)
