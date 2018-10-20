@@ -3,6 +3,7 @@
 
 #include "Pool.h"
 #include <cassert>
+#include <cstddef>
 #include <iostream>
 #include <unordered_set>
 #include <utility>
@@ -14,6 +15,15 @@ struct Lnode
     T element;
     Lnode* next;
 };
+
+template <typename T>
+size_t list_size(const Lnode<T>* list)
+{
+    size_t count {};
+    for (; list != nullptr; list = list ->next)
+        ++count;
+    return count;
+}
 
 template <typename T>
 void print_list(const Lnode<T>* list)
