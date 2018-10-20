@@ -363,13 +363,6 @@ bool lists_meet_o1(const Lnode<T>* lista, const Lnode<T>* listb)
         if (lista == listb)
             return true;
     return false;
-
-
-
-
-
-
-
 }
 
 #endif // ! LNODESTRUCT
