@@ -254,7 +254,7 @@ int main()
 
     std::cout << '\n';
     auto nmlist1 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
-    auto nmlist2 = make_list(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, p);
+    auto nmlist2 = make_list(std::vector{3, 4, 5, 6, 7, 8, 9, 10}, p);
     std::cout << lists_meet(nmlist1, nmlist2) << ' ' << lists_meet(nmlist2, nmlist1) << '\n';
     auto mhead = nmlist1->next->next->next;
     mhead->next = nmlist2; //they should meet now
