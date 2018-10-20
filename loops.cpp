@@ -71,8 +71,22 @@ namespace {
     template<typename T, typename U, typename... Vs>
     constexpr bool same(const T& x, const U& y, const Vs&... zs)
     {
-        static_assert(std::is_same_v<T, U>);
+        static_assert(is_same_v<T, U>);
         return x == y && same(y, zs...);
+    }
+
+    template<typename T>
+    void test(const vector<T>& a)
+    {
+        const auto s1 = using_accumulate(a);
+        const auto s2 = for_each_test(a);
+        const auto s3 = range_for(a);
+        const auto s4 = typical_for(a);
+        const auto s5 = for_indices(a);
+        const auto s6 = for_indices_size(a);
+
+        cout << "Sum = " << s1 << ". Checks out? "
+             << same(s1, s2, s3, s4, s5, s6) << '\n';
     }
 }
 
