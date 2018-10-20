@@ -270,7 +270,7 @@ int main()
     auto mlist2 = make_list(std::vector{3, 4, 5, 6, 7, 8, 9, 10}, p);
     std::cout << lists_meet_o1(mlist1, mlist2) << ' ' << lists_meet_o1(mlist2, mlist1) << '\n';
     auto nhead = mlist1->next->next->next;
-    mhead->next = mlist2; //they should meet now
+    nhead->next = mlist2; //they should meet now
     std::cout << lists_meet_o1(mlist1, mlist2) << ' ' << lists_meet_o1(mlist2, mlist1) << '\n';
     std::cout << lists_meet_o1(empty, mlist1) << ' ' << lists_meet_o1(mlist1, empty) << '\n';
 }
