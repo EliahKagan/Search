@@ -67,7 +67,7 @@ namespace {
     }
 
     template<typename T>
-    T sum(const std::vector<T>& items) // test_general_construction helper
+    T sum(const std::vector<T>& items) // helper for test_general_construction
     {
         return std::accumulate(cbegin(items), cend(items), 0);
     }
