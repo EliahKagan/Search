@@ -282,9 +282,9 @@ int main()
 {
     std::cout << std::boolalpha;
 
-    test_pool();
-    hr();
     test_loops();
+    hr();
+    test_pool();
     hr();
     test_lists();
     hr();
