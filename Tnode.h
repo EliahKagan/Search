@@ -34,9 +34,12 @@ std::vector<T> tree_to_vector(const Tnode<T>* tree)
     vector<T> v;
 
     function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
-        f();
+        if (t == nullptr) return;
+        v.push_back(t->element);
+        f(t->left);
+        f(t->right);
     };
-
+    f(tree);
 }
 
 
