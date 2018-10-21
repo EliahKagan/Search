@@ -2,6 +2,7 @@
 #define POOLCLASS
 
 #include <deque>
+#include <utility>
 
 template <typename T>
 class Pool

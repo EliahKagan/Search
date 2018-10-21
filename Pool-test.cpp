@@ -1,5 +1,10 @@
 #include "Pool-test.h"
+
 #include <iostream>
+#include <iterator>
+#include <numeric>
+#include <utility>
+#include <vector>
 #include "Pool.h"
 
 namespace {
@@ -36,12 +41,8 @@ namespace {
     }
 
     constexpr auto interactive = false;
-}
 
-void test_pool()
-{
-    std::cout << '\n';
-
+    void test_default_construction()
     {
         Pool<Noisy> pool;
         for (auto i = 5; i != 0; --i) {
@@ -56,5 +57,26 @@ void test_pool()
         else std::cout << "Destroying pool...\n";
     }
 
+    template<typename T>
+    T sum(const std::vector<T>& items) // test_general_construction helper
+    {
+        return std::accumulate(cbegin(items), cend(items), 0) << '\n';
+    }
+
+    void test_general_construction()
+    {
+        Pool<std::vector<int>> pool;
+        auto vp = pool(11, 3);
+        const auto vp2 = pool(*vp);
+        std::cout << sum(*vp) << ' ' << sum(*vp2) << ' ';
+        auto vp3 = pool(std::move(*vp));
+        std::cout << sum(*vp) << ' ' << sum(*vp3) << '\n';
+    }
+}
+
+void test_pool()
+{
+    test_default_construction();
     std::cout << '\n';
+    test_general_construction();
 }

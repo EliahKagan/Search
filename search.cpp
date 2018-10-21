@@ -155,8 +155,6 @@ namespace {
         std::cout << vindex(test, 20) << '\n';
         std::cout << vindex_alt(test, 20) << '\n';
 
-        test_pool();
-
         for (const auto value : {3, 10}) {
             const auto node = search_list(start, value);
             assert(node == search_list_eliah(start, value));
@@ -284,6 +282,8 @@ int main()
 {
     std::cout << std::boolalpha;
 
+    test_pool();
+    hr();
     test_loops();
     hr();
     test_lists();
