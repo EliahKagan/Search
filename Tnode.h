@@ -10,7 +10,7 @@ struct Tnode
     Tnode* left;
     Tnode* right;
 
-    Tnode(T p, T l, T r)
+    Tnode(T p, Tnode* l, Tnode* r)
     {
         element = p;
         *left = l;
