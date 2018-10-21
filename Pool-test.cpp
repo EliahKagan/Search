@@ -60,7 +60,7 @@ namespace {
     template<typename T>
     T sum(const std::vector<T>& items) // test_general_construction helper
     {
-        return std::accumulate(cbegin(items), cend(items), 0) << '\n';
+        return std::accumulate(cbegin(items), cend(items), 0);
     }
 
     void test_general_construction()
