@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <utility>
+#include <vector>
 #include "Pool.h"
 
 template <typename T>
@@ -25,5 +26,12 @@ std::size_t tree_size(const Tnode<T>* tree)
     else
         return 1 + tree_size(tree->left) + tree_size(tree->right);
 }
+
+template <typename T>
+std::vector<T> tree_to_vector(const Tnode<T>* tree)
+{
+
+}
+
 
 #endif //!TNODESTRUCT
