@@ -31,9 +31,9 @@ std::size_t tree_size(const Tnode<T>* tree)
 template <typename T>
 std::vector<T> tree_to_vector(const Tnode<T>* tree)
 {
-    vector<T> v;
+    std::vector<T> v;
 
-    const function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
+    const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
         if (t == nullptr) return;
         v.push_back(t->element);
         f(t->left);
