@@ -20,9 +20,10 @@ struct Tnode
 template <typename T>
 std::size_t tree_size(const Tnode<T>* tree)
 {
-    std::size_t count {};
-
-
+    if (tree == nullptr)
+        return 0;
+    else
+        return 1 + tree_size(tree->left) + tree_size(tree->right);
 }
 
 #endif //!TNODESTRUCT
