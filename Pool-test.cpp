@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <iterator>
+#include <mutex>
 #include <numeric>
 #include <utility>
 #include <vector>
@@ -57,6 +58,14 @@ namespace {
         else std::cout << "Destroying pool...\n";
     }
 
+    void test_nonmovable_construction()
+    {
+        Pool<std::mutex> mut_pool;
+        auto mp = mut_pool();
+        std::cout << "Constructed std::mutex at "
+                  << static_cast<const void*>(mp) << '\n';
+    }
+
     template<typename T>
     T sum(const std::vector<T>& items) // test_general_construction helper
     {
@@ -78,5 +87,6 @@ void test_pool()
 {
     test_default_construction();
     std::cout << '\n';
+    test_nonmovable_construction();
     test_general_construction();
 }
