@@ -41,6 +41,7 @@ std::vector<T> tree_to_vector(const Tnode<T>* tree)
     };
 
     f(tree);
+    return v;
 }
 
 
