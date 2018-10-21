@@ -2,6 +2,7 @@
 #define TNODESTRUCT
 
 #include <cstddef>
+#include <functional>
 #include <utility>
 #include <vector>
 #include "Pool.h"
@@ -30,6 +31,11 @@ std::size_t tree_size(const Tnode<T>* tree)
 template <typename T>
 std::vector<T> tree_to_vector(const Tnode<T>* tree)
 {
+    vector<T> v;
+
+    function<void()> f = [&f, &v]() {
+        f();
+    };
 
 }
 
