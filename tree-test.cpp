@@ -6,5 +6,5 @@
 void test_trees()
 {
     Pool<Tnode<int>> f;
-    f(3,f(4),f(5));
+    auto root = f(3,f(4),f(5));
 }
