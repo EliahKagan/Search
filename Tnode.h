@@ -13,8 +13,8 @@ struct Tnode
     Tnode(T p, Tnode* l, Tnode* r)
     {
         element = p;
-        *left = l;
-        *right = r;
+        left = l;
+        right = r;
     }
 };
 
