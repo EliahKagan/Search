@@ -4,6 +4,7 @@
 #include <iterator>
 #include <mutex>
 #include <numeric>
+#include <random>
 #include <utility>
 #include <vector>
 #include "Pool.h"
@@ -79,7 +80,16 @@ namespace {
         const auto vp2 = pool(*vp);
         std::cout << sum(*vp) << ' ' << sum(*vp2) << ' ';
         auto vp3 = pool(std::move(*vp));
-        std::cout << sum(*vp) << ' ' << sum(*vp3) << '\n';
+        std::cout << sum(*vp) << ' ' << sum(*vp3) << "\n\n";
+
+        Pool<std::mt19937_64> epool;
+        constexpr auto s = 31337;
+        std::vector<std::mt19937_64*> eps {epool(s), epool(s), epool(s), epool(s)};
+        for (auto i = 0; i != size(eps); ++i) eps[i]->discard(i);
+        for (auto i = 8; i != 0; --i) {
+            for (const auto ep : eps) std::cout << ' ' << (*ep)() % 1000;
+            std::cout << '\n';
+        }
     }
 }
 
