@@ -84,7 +84,9 @@ namespace {
 
         Pool<std::mt19937_64> epool;
         constexpr auto s = 31337;
-        std::vector<std::mt19937_64*> eps {epool(s), epool(s), epool(s), epool(s)};
+        std::vector<std::mt19937_64*> eps {epool(s), epool(s)};
+        eps.push_back(epool(*eps[0]));
+        eps.push_back(epool(*eps[1]));
         for (auto i = 0; i != size(eps); ++i) eps[i]->discard(i);
         for (auto i = 8; i != 0; --i) {
             for (const auto ep : eps) std::cout << ' ' << (*ep)() % 1000;
