@@ -33,7 +33,7 @@ std::vector<T> tree_to_vector(const Tnode<T>* tree)
 {
     vector<T> v;
 
-    function<void()> f = [&f, &v]() {
+    function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
         f();
     };
 
