@@ -17,16 +17,16 @@ struct Lnode
 };
 
 template <typename T>
-size_t list_size(const Lnode<T>* list)
+std::size_t list_size(const Lnode<T>* list)
 {
-    size_t count {};
+    std::size_t count {};
     for (; list != nullptr; list = list ->next)
         ++count;
     return count;
 }
 
 template <typename T>
-const Lnode<T>* advance_list_by(const Lnode<T>* list, size_t num)
+const Lnode<T>* advance_list_by(const Lnode<T>* list, std::size_t num)
 {
     for (int i = 0; i < num; ++i) list = list->next;
     return list;

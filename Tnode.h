@@ -1,8 +1,9 @@
 #ifndef TNODESTRUCT
 #define TNODESTRUCT
 
-#include "Pool.h"
+#include <cstddef>
 #include <utility>
+#include "Pool.h"
 
 template <typename T>
 struct Tnode
@@ -15,5 +16,13 @@ struct Tnode
     explicit Tnode(T p) : element{std::move(p)}, left{}, right{} { }
 
 };
+
+template <typename T>
+std::size_t tree_size(const Tnode<T>* tree)
+{
+    std::size_t count {};
+
+
+}
 
 #endif //!TNODESTRUCT
