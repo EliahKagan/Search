@@ -86,7 +86,7 @@ template <typename T>
 std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
 {
     std::vector<T> v;
-    std::queue<const Tnode*> q;
+    std::queue<const Tnode<T>*> q;
 
     if (tree != nullptr)
     {
