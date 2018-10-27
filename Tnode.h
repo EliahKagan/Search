@@ -88,9 +88,13 @@ std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
     std::vector<T> v;
     std::queue<const Tnode*> q;
 
-    for (q.push(tree); !q.empty(); q.pop())
+    if (tree != nullptr)
     {
-
+        for (q.push(tree); !q.empty(); q.pop())
+        {
+            //use the current element
+            v.push_back(tree->element)
+        }
     }
 
     return v;
