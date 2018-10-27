@@ -54,9 +54,9 @@ std::vector<T> tree_to_vector_post(const Tnode<T>* tree)
     const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
         if (t == nullptr) return;
 
-        v.push_back(t->element);
         f(t->left);
         f(t->right);
+        v.push_back(t->element);
     };
 
     f(tree);
@@ -71,14 +71,13 @@ std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
     const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
         if (t == nullptr) return;
 
-        v.push_back(t->element);
         f(t->left);
+        v.push_back(t->element);
         f(t->right);
     };
 
     f(tree);
     return v;
 }
-
 
 #endif //!TNODESTRUCT
