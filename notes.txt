@@ -1,0 +1,53 @@
+PS D:\source\Repos\Search\build> cmake ..
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/source/Repos/Search/build
+PS D:\source\Repos\Search\build> ninja
+[2/3] Building CXX object CMakeFiles/Search.dir/tree-test.cpp.obj
+FAILED: CMakeFiles/Search.dir/tree-test.cpp.obj
+D:\msys64\mingw64\bin\clang++.exe    -Weverything -Wno-c++98-compat -Wno-padded -Wno-unused-member-function -Wno-exit-time-destructors -Wno-sign-conversion -Wno-sign-compare -Wno-float-equal -g   -std=gnu++17 -MD -MT CMakeFiles/Search.dir/tree-test.cpp.obj -MF CMakeFiles\Search.dir\tree-test.cpp.obj.d -o CMakeFiles/Search.dir/tree-test.cpp.obj -c ../tree-test.cpp
+In file included from ../tree-test.cpp:3:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\iostream:39:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\ostream:38:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\ios:42:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\bits/ios_base.h:41:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\bits/locale_classes.h:40:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\string:41:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\bits/allocator.h:46:
+In file included from D:\msys64\mingw64\include\c++\8.2.0\x86_64-w64-mingw32\bits/c++allocator.h:33:
+D:\msys64\mingw64\include\c++\8.2.0\ext/new_allocator.h:136:23: error: no matching constructor for initialization of 'Tnode<int>'
+        { ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+                             ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\msys64\mingw64\include\c++\8.2.0\bits/alloc_traits.h:475:8: note: in instantiation of function template specialization '__gnu_cxx::new_allocator<Tnode<int> >::construct<Tnode<int>, int, Tnode<int> *, int>' requested here
+        { __a.construct(__p, std::forward<_Args>(__args)...); }
+              ^
+D:\msys64\mingw64\include\c++\8.2.0\bits/deque.tcc:168:21: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Tnode<int> > >::construct<Tnode<int>, int, Tnode<int> *, int>' requested here
+            _Alloc_traits::construct(this->_M_impl,
+                           ^
+../Pool.h:25:15: note: in instantiation of function template specialization 'std::deque<Tnode<int>, std::allocator<Tnode<int> > >::emplace_back<int, Tnode<int> *, int>' requested here
+   return &(q.emplace_back(std::forward<Args>(args)...));
+              ^
+../tree-test.cpp:15:18: note: in instantiation of function template specialization 'Pool<Tnode<int> >::operator()<int, Tnode<int> *, int>' requested here
+    auto root = f(3, f(4), (5));
+                 ^
+../Tnode.h:19:5: note: candidate constructor not viable: no known conversion from 'int' to 'Tnode<int> *' for 3rd argument
+    Tnode(T&& p, Tnode* l, Tnode* r) : element(std::move(p)), left{l}, right{r} { }
+    ^
+../Tnode.h:17:5: note: candidate constructor not viable: no known conversion from 'int' to 'Tnode<int> *' for 3rd argument
+    Tnode(const T& p, Tnode* l, Tnode* r) : element(p), left{l}, right{r} { }
+    ^
+../Tnode.h:18:14: note: candidate constructor not viable: requires single argument 'p', but 3 arguments were
+provided
+    explicit Tnode(const T& p) : Tnode{p, nullptr, nullptr} { }
+             ^
+../Tnode.h:20:14: note: candidate constructor not viable: requires single argument 'p', but 3 arguments were
+provided
+    explicit Tnode(T&& p) : Tnode{std::move(p), nullptr, nullptr} { }
+             ^
+../Tnode.h:11:8: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 3 were provided
+struct Tnode
+       ^
+../Tnode.h:11:8: note: candidate constructor (the implicit move constructor) not viable: requires 1 argument, but 3 were provided
+1 error generated.
+ninja: build stopped: subcommand failed.
+PS D:\source\Repos\Search\build>
