@@ -100,10 +100,40 @@ void uglyprint(const Tnode<T>* tree, int indent = 0)
     uglyprint(tree->right, indent + 1);
 }
 
+namespace detail {
+    template<typename T>
+    struct NodeDepthPair {
+        int col;
+        const Tnode<T>* node;
+    };
+
+    template<typename T>
+    std::vector<NodeDepthPair<T>> get_prettyprint_table(const Tnode<T>* tree)
+    {
+        std::vector<NodeDepthPair<T>> table;
+
+        const auto put = [&table](const Tnode<T>* const node, const int depth) {
+
+        };
+
+        const std::function<void(const Tnode<T>*, int)>
+        dfs = [&put, &dfs](const Tnode<T>* const node, const int depth) {
+            if (!node) return;
+
+            dfs(node->left, depth + 1);
+            put(node, depth);
+            dfs(node->right, depth + 1);
+        };
+
+        dfs(tree, 0);
+        return table;
+    }
+}
+
 template<typename T>
 void prettyprint(const Tnode<T>* tree)
 {
-    // FIXME: implement this
+
 }
 
 template <typename T>
