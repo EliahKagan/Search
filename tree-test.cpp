@@ -19,10 +19,6 @@ void test_trees()
     print(tree_to_vector_in(root));
     print(tree_to_vector_post(root));
 
-
-    vector<int> v = tree_to_vector_pre(root);
-    print(v);
-
     auto root2 = f(9, root,
                       f(2, nullptr,
                            f(6)));
