@@ -92,7 +92,7 @@ std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
     {
         for (q.push(tree); !q.empty(); q.pop())
         {
-            //enque children of current element
+            //enque children of current Node
             //if they are nonnull
             if (q.front()->left != nullptr)
                 q.push(q.front()->left);
