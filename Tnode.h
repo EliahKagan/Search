@@ -94,7 +94,7 @@ void uglyprint(const Tnode<T>* tree, int indent = 0)
     //do stuff
     for(int x = indent; x > 0; x--)
         std::cout<<"  ";
-    std::cout<<tree->element()<<'\n';
+    std::cout<<tree->element<<'\n';
     uglyprint(tree->right, indent + 1);
 }
 
