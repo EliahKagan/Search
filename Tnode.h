@@ -16,7 +16,7 @@ struct Tnode
 
     Tnode(const T& p, Tnode* l, Tnode* r) : element(p), left{l}, right{r} { }
     explicit Tnode(const T& p) : Tnode{p, nullptr, nullptr} { }
-    Tnode(T&& p, Tnode& l, Tnode* r) : element(std::move(p)), left{l}, right{r} { }
+    Tnode(T&& p, Tnode* l, Tnode* r) : element(std::move(p)), left{l}, right{r} { }
     explicit Tnode(T&& p) : Tnode{std::move(p), nullptr, nullptr} { }
 };
 
