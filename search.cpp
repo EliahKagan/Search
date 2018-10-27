@@ -11,6 +11,7 @@
 #include "Lnode.h"
 #include "loops.h"
 #include "tree-test.h"
+#include "vecutil.h"
 
 namespace {
     void hr()
@@ -34,17 +35,6 @@ namespace {
         return out << "Foo!";
     }
 
-    template <class T>
-    void print(const std::vector<T>& vec)
-    {
-        auto sep = "";
-        for (const auto& x : vec)
-        {
-            std::cout << sep << x;
-            sep = " ";
-        }
-        std::cout << '\n';
-    }
 
     bool mycompare(int i, int j)
     {

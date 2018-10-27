@@ -14,6 +14,7 @@ add_executable(Search
     Pool-test.cpp Pool-test.h
     Tnode.cpp Tnode.h
     tree-test.cpp tree-test.h
+    vecutil.cpp vecutil.h
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
