@@ -15,6 +15,11 @@ void test_trees()
     auto root = f(3, f(4), f(5));
     cout << tree_size(empty) << ' ' << tree_size(root) << '\n';
 
+    print(tree_to_vector_pre(root));
+    print(tree_to_vector_in(root));
+    print(tree_to_vector_post(root));
+
+
     vector<int> v = tree_to_vector_pre(root);
     print(v);
 
