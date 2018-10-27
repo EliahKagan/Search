@@ -100,7 +100,7 @@ std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
                 q.push(q.front()->right);
 
             //use the current element
-            v.push_back(q.front->element);
+            v.push_back(q.front()->element);
         }
     }
     return v;
