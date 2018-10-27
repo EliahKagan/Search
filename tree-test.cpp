@@ -18,6 +18,7 @@ void test_trees()
     print(tree_to_vector_pre(root));
     print(tree_to_vector_in(root));
     print(tree_to_vector_post(root));
+    print(tree_to_vector_level(root));
 
     auto root2 = f(9, root,
                       f(2, nullptr,
@@ -25,4 +26,5 @@ void test_trees()
     print(tree_to_vector_pre(root2));
     print(tree_to_vector_in(root2));
     print(tree_to_vector_post(root2));
+    print(tree_to_vector_level(root2));
 }
