@@ -3,9 +3,11 @@
 
 #include <cstddef>
 #include <functional>
+#include <queue>
 #include <utility>
 #include <vector>
 #include "Pool.h"
+
 
 template <typename T>
 struct Tnode
@@ -79,5 +81,21 @@ std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
     f(tree);
     return v;
 }
+
+template <typename T>
+std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+    std::queue<const Tnode*> q;
+
+    for (q.push(tree); !q.empty(); q.pop())
+    {
+
+    }
+
+    return v;
+}
+
+
 
 #endif //!TNODESTRUCT
