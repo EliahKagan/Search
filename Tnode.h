@@ -30,7 +30,41 @@ std::size_t tree_size(const Tnode<T>* tree)
 }
 
 template <typename T>
-std::vector<T> tree_to_vector(const Tnode<T>* tree)
+std::vector<T> tree_to_vector_pre(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+
+    const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
+        if (t == nullptr) return;
+
+        v.push_back(t->element);
+        f(t->left);
+        f(t->right);
+    };
+
+    f(tree);
+    return v;
+}
+
+template <typename T>
+std::vector<T> tree_to_vector_post(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+
+    const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
+        if (t == nullptr) return;
+
+        v.push_back(t->element);
+        f(t->left);
+        f(t->right);
+    };
+
+    f(tree);
+    return v;
+}
+
+template <typename T>
+std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
 {
     std::vector<T> v;
 
