@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Pool.h"
 #include "Tnode.h"
+#include "vecutil.h"
 
 using namespace std;
 
@@ -15,4 +16,5 @@ void test_trees()
     cout << tree_size(empty) << ' ' << tree_size(root) << '\n';
 
     vector<int> v = tree_to_vector(root);
+    print(v);
 }
