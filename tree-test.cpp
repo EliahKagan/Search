@@ -35,4 +35,11 @@ void test_trees()
     cout << "\n\n";
     uglyprint(root2);
 
+    auto root3 = root2;
+    for (auto i = 10; i > 0; --i) {
+        root3 = f(i, root3, nullptr);
+        root3 = f(i - 1, nullptr, root3);
+    }
+    cout << "\n\n";
+    uglyprint(root3);
 }
