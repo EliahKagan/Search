@@ -106,6 +106,28 @@ std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
     return v;
 }
 
+template <typename T>
+std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+    std::stack<const Tnode<T>*> s;
 
+    if (tree != nullptr)
+    {
+        for (q.push(tree); !q.empty(); q.pop())
+        {
+            //enque children of current Node
+            //if they are nonnull
+            if (q.front()->left != nullptr)
+                q.push(q.front()->left);
+            if (q.front()->right != nullptr)
+                q.push(q.front()->right);
+
+            //use the current element
+            v.push_back(q.front()->element);
+        }
+    }
+    return v;
+}
 
 #endif //!TNODESTRUCT
