@@ -36,7 +36,7 @@ void test_trees()
     uglyprint(root2);
 
     auto root3 = root2;
-    for (auto i = 1000; i > 0; --i) {
+    for (auto i = 1'000'000; i > 0; --i) {
         root3 = f(i, root3, nullptr);
         root3 = f(i - 1, nullptr, root3);
     }
