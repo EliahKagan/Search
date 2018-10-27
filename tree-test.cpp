@@ -23,4 +23,6 @@ void test_trees()
                       f(2, nullptr,
                            f(6)));
     print(tree_to_vector_pre(root2));
+    print(tree_to_vector_in(root2));
+    print(tree_to_vector_post(root2));
 }
