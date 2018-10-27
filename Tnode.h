@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <functional>
 #include <queue>
+#include <stack>
 #include <utility>
 #include <vector>
 #include "Pool.h"
