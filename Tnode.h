@@ -1,9 +1,13 @@
 #ifndef TNODESTRUCT
 #define TNODESTRUCT
 
+#include <algorithm>
+#include <cassert>
 #include <cstddef>
 #include <functional>
+#include <iomanip>
 #include <iostream>
+#include <iterator>
 #include <queue>
 #include <stack>
 #include <utility>
@@ -102,18 +106,29 @@ void uglyprint(const Tnode<T>* tree, int indent = 0)
 
 namespace detail {
     template<typename T>
-    struct NodeDepthPair {
+    struct ColNodePair {
         int col;
         const Tnode<T>* node;
     };
 
     template<typename T>
-    std::vector<NodeDepthPair<T>> get_prettyprint_table(const Tnode<T>* tree)
+    void sort_prettyprint_table_row(std::vector<ColNodePair<T>>& row)
     {
-        std::vector<NodeDepthPair<T>> table;
+        std::sort(begin(row), end(row), [](const ColNodePair& lhs,
+                                           const ColNodePair& rhs) {
+            return lhs.col < rhs.col;
+        });
+    }
 
-        const auto put = [&table](const Tnode<T>* const node, const int depth) {
+    template<typename T>
+    std::vector<ColNodePair<T>> get_prettyprint_table(const Tnode<T>* tree)
+    {
+        std::vector<std::vector<ColNodePair<T>>> table;
 
+        const auto put = [&table, j = 0](const Tnode<T>* const node,
+                                         const int i) mutable {
+            if (size(table) <= i) table.resize(i + 1);
+            table.at(i).push_back({j++, node});
         };
 
         const std::function<void(const Tnode<T>*, int)>
@@ -126,6 +141,7 @@ namespace detail {
         };
 
         dfs(tree, 0);
+        for (auto& row : table) sort_prettyprint_table_row(row);
         return table;
     }
 }
@@ -133,7 +149,18 @@ namespace detail {
 template<typename T>
 void prettyprint(const Tnode<T>* tree)
 {
+    static constexpr auto format_width = 3, field_width = format_width + 2;
 
+    for (const auto& row : get_prettyprint_table(tree)) {
+        auto cursor_col = 0;
+
+        for (const auto [col, node] : row) {
+            assert(cursor_col <= col);
+
+        }
+
+        std::cout << '\n';
+    }
 }
 
 template <typename T>
