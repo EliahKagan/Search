@@ -30,6 +30,7 @@ void test_trees()
     print(tree_to_vector_post(root2));
     print(tree_to_vector_level(root2));
 
+    cout <<"\n\n";
     uglyprint(root);
     cout << "\n\n";
     uglyprint(root2);
