@@ -122,10 +122,10 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
 
             //enstack children of current Node
             //if they are nonnull
+            if (s.top()->right != nullptr)
+                s.push(s.top()->right);
             if (s.top()->left != nullptr)
                 s.push(s.top()->left);
-            if (s.front()->right != nullptr)
-                s.push(s.top()->right);
         }
     }
     return v;
