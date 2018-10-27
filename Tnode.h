@@ -116,7 +116,7 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
     if (tree != nullptr)
         s.push(tree);
 
-    while(!s.empty())
+    while (!s.empty())
     {
         //use the current element
         const Tnode<T>* temp = s.top();
