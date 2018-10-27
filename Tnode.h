@@ -114,20 +114,23 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
     std::stack<const Tnode<T>*> s;
 
     if (tree != nullptr)
-    {
-        for (s.push(tree); !s.empty(); s.pop())
-        {
-            //use the current element
-            v.push_back(s.top()->element);
+        s.push(tree);
 
-            //enstack children of current Node
-            //if they are nonnull
-            if (s.top()->right != nullptr)
-                s.push(s.top()->right);
-            if (s.top()->left != nullptr)
-                s.push(s.top()->left);
-        }
+    while(!s.empty())
+    {
+        //use the current element
+        const Tnode<T>* temp = s.top();
+        s.pop();
+        v.push_back(temp->element);
+
+        //enstack children of current Node
+        //if they are nonnull
+        if (temp->right != nullptr)
+            s.push(temp->right);
+        if (temp->left != nullptr)
+            s.push(temp->left);
     }
+
     return v;
 }
 
