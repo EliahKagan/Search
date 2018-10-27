@@ -115,7 +115,7 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
 
     if (tree != nullptr)
     {
-        for (s.push(tree); !q.empty(); q.pop())
+        for (s.push(tree); !s.empty(); s.pop())
         {
             //use the current element
             v.push_back(s.top()->element);
