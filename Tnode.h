@@ -14,9 +14,14 @@ struct Tnode
     Tnode* left;
     Tnode* right;
 
-    Tnode(T p, Tnode* l, Tnode* r) : element{std::move(p)}, left{l}, right{r} { }
-    explicit Tnode(T p) : element{std::move(p)}, left{}, right{} { }
+    //Tnode(T p, Tnode* l, Tnode* r) : element{std::move(p)}, left{l}, right{r} { }
+    //explicit Tnode(T p) : element{std::move(p)}, left{}, right{} { }
 
+    // TODO: Consider overloading on value category. Something like:
+    Tnode(const T& p, Tnode* l, Tnode* r) : element(p), left{l}, right{r} { }
+    explicit Tnode(const T& p) : Tnode{p, nullptr, nullptr} { }
+    Tnode(T&& p, Tnode& l, Tnode* r) : element(std::move(p)), left{l}, right{r} { }
+    explicit Tnode(T&& p) : Tnode{std::move(p), nullptr, nullptr} { }
 };
 
 template <typename T>
