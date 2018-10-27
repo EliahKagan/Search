@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <functional>
+#include <iostream>
 #include <queue>
 #include <stack>
 #include <utility>
@@ -91,6 +92,9 @@ void uglyprint(const Tnode<T>* tree, int indent = 0)
 
     uglyprint(tree->left, indent + 1);
     //do stuff
+    for(int x = indent; x > 0; x--)
+        std::cout<<"  ";
+    std::cout<<tree->element()<<'\n';
     uglyprint(tree->right, indent + 1);
 }
 
