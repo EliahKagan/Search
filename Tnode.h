@@ -84,6 +84,18 @@ std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
 }
 
 template <typename T>
+void uglyprint(const Tnode<T>* tree, int indent = 0)
+{
+    if (tree == nullptr)
+        return;
+
+    uglyprint(tree->left, indent + 1);
+    //do stuff
+    uglyprint(tree->right, indent + 1);
+}
+
+
+template <typename T>
 std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
 {
     std::vector<T> v;
