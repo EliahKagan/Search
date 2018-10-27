@@ -100,7 +100,6 @@ void uglyprint(const Tnode<T>* tree, int indent = 0)
     uglyprint(tree->right, indent + 1);
 }
 
-
 template <typename T>
 std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
 {
