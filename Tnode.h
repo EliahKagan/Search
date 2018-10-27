@@ -93,7 +93,8 @@ std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
         for (q.push(tree); !q.empty(); q.pop())
         {
             //use the current element
-            v.push_back(tree->element)
+            v.push_back(tree->element);
+
         }
     }
 
