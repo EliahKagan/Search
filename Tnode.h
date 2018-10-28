@@ -54,6 +54,37 @@ std::vector<T> tree_to_vector_pre(const Tnode<T>* tree)
     return v;
 }
 
+template <typename T, typename F>
+void preorder(const Tnode<T>* tree, F f)
+{
+    if (tree) {
+        f(tree->element);
+        preorder(tree->left, f);
+        preorder(tree->right, f);
+    }
+}
+
+template <typename T, typename F>
+void inorder(const Tnode<T>* tree, F f)
+{
+    if (tree) {
+        inorder(tree->left, f);
+        f(tree->element);
+        inorder(tree->right, f);
+    }
+}
+
+template <typename T, typename F>
+void postorder(const Tnode<T>* tree, F f)
+{
+    if (tree) {
+        postorder(tree->left, f);
+        postorder(tree->right, f);
+        f(tree->element);
+    }
+}
+
+
 template <typename T>
 std::vector<T> tree_to_vector_post(const Tnode<T>* tree)
 {

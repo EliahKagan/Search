@@ -9,28 +9,43 @@ using namespace std;
 
 void test_trees()
 {
+    const auto put = [](const auto& x) { std::cout << x << ' '; };
+
     constexpr const Tnode<int>* empty {};
     Pool<Tnode<int>> f;
 
     auto root = f(3, f(4), f(5));
     cout << tree_size(empty) << ' ' << tree_size(root) << '\n';
 
+    preorder(root, put);
+    std::cout << '\n';
     print(tree_to_vector_pre(root));
-    print(tree_to_vector_preit(root));
-    print(tree_to_vector_preit_alt(root));
+    //print(tree_to_vector_preit(root));
+    //print(tree_to_vector_preit_alt(root));
+    inorder(root, put);
+    std::cout << '\n';
     print(tree_to_vector_in(root));
+    postorder(root, put);
+    std::cout << '\n';
     print(tree_to_vector_post(root));
-    print(tree_to_vector_level(root));
+    //print(tree_to_vector_level(root));
 
     auto root2 = f(9, root,
                       f(2, nullptr,
                            f(6)));
+
+    preorder(root2, put);
+    std::cout << '\n';
     print(tree_to_vector_pre(root2));
-    print(tree_to_vector_preit(root2));
-    print(tree_to_vector_preit_alt(root2));
+    //print(tree_to_vector_preit(root2));
+    //print(tree_to_vector_preit_alt(root2));
+    inorder(root2, put);
+    std::cout << '\n';
     print(tree_to_vector_in(root2));
+    postorder(root2, put);
+    std::cout << '\n';
     print(tree_to_vector_post(root2));
-    print(tree_to_vector_level(root2));
+    //print(tree_to_vector_level(root2));
 
     cout <<"\n\n";
     uglyprint(root);
