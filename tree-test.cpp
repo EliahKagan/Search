@@ -1,71 +1,77 @@
 #include "tree-test.h"
 
 #include <iostream>
+#include <string_view>
 #include "Pool.h"
 #include "Tnode.h"
 #include "vecutil.h"
 
-using namespace std;
+namespace {
+    using namespace std;
+
+    void heading(const std::string_view text)
+    {
+        std::cout << "\n::: " << text << " :::\n";
+    }
+
+    template<typename T>
+    void do_traversals(const Tnode<T>* const root,
+                       const std::string_view label = "-")
+    {
+        cout << label << "\n\n";
+
+        cout << "Size " << tree_size(root) << '\n';
+
+        const auto put = [](const auto& x) { std::cout << x << ' '; };
+
+        heading("Preorder traversals");
+        preorder(root, put);
+        std::cout << '\n';
+        print(tree_to_vector_pre(root));
+        print(tree_to_vector_preit(root));
+        print(tree_to_vector_preit_alt(root));
+
+        heading("Inorder traversals");
+        inorder(root, put);
+        std::cout << '\n';
+        print(tree_to_vector_in(root));
+
+        heading("Postorder traversals");
+        postorder(root, put);
+        std::cout << '\n';
+        print(tree_to_vector_post(root));
+
+        heading("Level-order traversals");
+        print(tree_to_vector_level(root));
+
+        heading("\"Ugly\" print");
+        uglyprint(root);
+
+        heading("\"Pretty\" print");
+        prettyprint(root);
+        cout << "\n\n";
+    }
+}
 
 void test_trees()
 {
-    const auto put = [](const auto& x) { std::cout << x << ' '; };
-
-    constexpr const Tnode<int>* empty {};
     Pool<Tnode<int>> f;
 
-    auto root = f(3, f(4), f(5));
-    cout << tree_size(empty) << ' ' << tree_size(root) << '\n';
+    constexpr const Tnode<int>* empty {};
+    do_traversals(empty, "EMPTY TREE");
 
-    preorder(root, put);
-    std::cout << '\n';
-    print(tree_to_vector_pre(root));
-    print(tree_to_vector_preit(root));
-    print(tree_to_vector_preit_alt(root));
-    inorder(root, put);
-    std::cout << '\n';
-    print(tree_to_vector_in(root));
-    postorder(root, put);
-    std::cout << '\n';
-    print(tree_to_vector_post(root));
-    print(tree_to_vector_level(root));
+    const auto root1 = f(3, f(4), f(5));
+    do_traversals(root1, "COMPLETE THREE-NODE TREE");
 
-    auto root2 = f(9, root,
+    auto root2 = f(9, root1,
                       f(2, nullptr,
                            f(6)));
-
-    preorder(root2, put);
-    std::cout << '\n';
-    print(tree_to_vector_pre(root2));
-    print(tree_to_vector_preit(root2));
-    print(tree_to_vector_preit_alt(root2));
-    inorder(root2, put);
-    std::cout << '\n';
-    print(tree_to_vector_in(root2));
-    postorder(root2, put);
-    std::cout << '\n';
-    print(tree_to_vector_post(root2));
-    print(tree_to_vector_level(root2));
-
-    cout <<"\n\n";
-    uglyprint(root);
-    cout << "\n\n";
-    uglyprint(root2);
+    do_traversals(root2, "SLIGHTLY MORE COMPLEX TREE");
 
     auto root3 = root2;
     for (auto i = 10; i > 0; i -= 2) {
         root3 = f(i, root3, nullptr);
         root3 = f(i - 1, nullptr, root3);
     }
-    cout << "\n\n";
-    uglyprint(root3);
-
-    cout << "\n\n";
-    prettyprint(root);
-
-    cout << "\n\n";
-    prettyprint(root2);
-
-    cout << "\n\n";
-    prettyprint(root3);
+    do_traversals(root3, "(SOMEWHAT) LARGER AND QUITE UNBALANCED TREE");
 }
