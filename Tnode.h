@@ -14,7 +14,6 @@
 #include <vector>
 #include "Pool.h"
 
-
 template <typename T>
 struct Tnode
 {
@@ -35,23 +34,6 @@ std::size_t tree_size(const Tnode<T>* tree)
         return 0;
     else
         return 1 + tree_size(tree->left) + tree_size(tree->right);
-}
-
-template <typename T>
-std::vector<T> tree_to_vector_pre(const Tnode<T>* tree)
-{
-    std::vector<T> v;
-
-    const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
-        if (t == nullptr) return;
-
-        v.push_back(t->element);
-        f(t->left);
-        f(t->right);
-    };
-
-    f(tree);
-    return v;
 }
 
 template <typename T, typename F>
@@ -84,6 +66,22 @@ void postorder(const Tnode<T>* tree, F f)
     }
 }
 
+template <typename T>
+std::vector<T> tree_to_vector_pre(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+
+    const std::function<void(const Tnode<T>*)> f = [&f, &v](const Tnode<T>* t) {
+        if (t == nullptr) return;
+
+        v.push_back(t->element);
+        f(t->left);
+        f(t->right);
+    };
+
+    f(tree);
+    return v;
+}
 
 template <typename T>
 std::vector<T> tree_to_vector_post(const Tnode<T>* tree)
@@ -116,6 +114,77 @@ std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
     };
 
     f(tree);
+    return v;
+}
+
+template <typename T>
+std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+    std::queue<const Tnode<T>*> q;
+
+    if (tree != nullptr)
+    {
+        for (q.push(tree); !q.empty(); q.pop())
+        {
+            //enque children of current Node
+            //if they are nonnull
+            if (q.front()->left != nullptr)
+                q.push(q.front()->left);
+            if (q.front()->right != nullptr)
+                q.push(q.front()->right);
+
+            //use the current element
+            v.push_back(q.front()->element);
+        }
+    }
+    return v;
+}
+
+template <typename T>
+std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+    std::stack<const Tnode<T>*> s;
+
+    if (tree != nullptr)
+        s.push(tree);
+
+    while (!s.empty())
+    {
+        //use the current element
+        const Tnode<T>* temp = s.top();
+        s.pop();
+        v.push_back(temp->element);
+
+        //enstack children of current Node
+        //if they are nonnull
+        if (temp->right != nullptr)
+            s.push(temp->right);
+        if (temp->left != nullptr)
+            s.push(temp->left);
+    }
+
+    return v;
+}
+
+template <typename T>
+std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
+{
+    std::vector<T> v;
+    std::stack<const Tnode<T>*> s;
+
+    while (tree || !empty(s)) {
+        // Go left as far as possible.
+        for (; tree; tree = tree->left) {
+            v.push_back(tree->element);
+            s.push(tree);
+        }
+
+        tree = s.top()->right;
+        s.pop();
+    }
+
     return v;
 }
 
@@ -189,77 +258,6 @@ void prettyprint(const Tnode<T>* tree)
 
         std::cout << '\n';
     }
-}
-
-template <typename T>
-std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
-{
-    std::vector<T> v;
-    std::queue<const Tnode<T>*> q;
-
-    if (tree != nullptr)
-    {
-        for (q.push(tree); !q.empty(); q.pop())
-        {
-            //enque children of current Node
-            //if they are nonnull
-            if (q.front()->left != nullptr)
-                q.push(q.front()->left);
-            if (q.front()->right != nullptr)
-                q.push(q.front()->right);
-
-            //use the current element
-            v.push_back(q.front()->element);
-        }
-    }
-    return v;
-}
-
-template <typename T>
-std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
-{
-    std::vector<T> v;
-    std::stack<const Tnode<T>*> s;
-
-    if (tree != nullptr)
-        s.push(tree);
-
-    while (!s.empty())
-    {
-        //use the current element
-        const Tnode<T>* temp = s.top();
-        s.pop();
-        v.push_back(temp->element);
-
-        //enstack children of current Node
-        //if they are nonnull
-        if (temp->right != nullptr)
-            s.push(temp->right);
-        if (temp->left != nullptr)
-            s.push(temp->left);
-    }
-
-    return v;
-}
-
-template <typename T>
-std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
-{
-    std::vector<T> v;
-    std::stack<const Tnode<T>*> s;
-
-    while (tree || !empty(s)) {
-        // Go left as far as possible.
-        for (; tree; tree = tree->left) {
-            v.push_back(tree->element);
-            s.push(tree);
-        }
-
-        tree = s.top()->right;
-        s.pop();
-    }
-
-    return v;
 }
 
 #endif //!TNODESTRUCT
