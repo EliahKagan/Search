@@ -45,4 +45,7 @@ void test_trees()
 
     cout << "\n\n";
     prettyprint(root);
+
+    cout << "\n\n";
+    prettyprint(root2);
 }
