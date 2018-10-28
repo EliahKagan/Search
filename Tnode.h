@@ -112,15 +112,6 @@ namespace detail {
     };
 
     template<typename T>
-    void sort_prettyprint_table_row(std::vector<ColNodePair<T>>& row)
-    {
-        std::sort(begin(row), end(row), [](const ColNodePair<T>& lhs,
-                                           const ColNodePair<T>& rhs) {
-            return lhs.col < rhs.col;
-        });
-    }
-
-    template<typename T>
     std::vector<std::vector<ColNodePair<T>>>
     get_prettyprint_table(const Tnode<T>* const tree)
     {
@@ -142,7 +133,6 @@ namespace detail {
         };
 
         dfs(tree, 0);
-        for (auto& row : table) sort_prettyprint_table_row(row);
         return table;
     }
 }
