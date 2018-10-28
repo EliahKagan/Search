@@ -214,7 +214,12 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
 template <typename T>
 std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
 {
+    std::vector<T> v;
+    std::stack<const Tnode<T>*> s;
 
+
+
+    return v;
 }
 
 #endif //!TNODESTRUCT
