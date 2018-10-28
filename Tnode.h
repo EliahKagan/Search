@@ -141,7 +141,7 @@ template<typename T>
 void prettyprint(const Tnode<T>* tree)
 {
     using std::cout;
-    static constexpr auto item_width = 1, padding = 0;
+    static constexpr auto item_width = 3, padding = 2;
     static constexpr auto field_width = item_width + padding;
 
     for (const auto& row : detail::get_prettyprint_table(tree)) {
@@ -158,7 +158,7 @@ void prettyprint(const Tnode<T>* tree)
             //std::cout << std::setw(field_width * delta + padding) << ""
             //          << std::setw(item_width) << node->element;
 
-            cursor_col = col;
+            cursor_col = col + 1;
         }
 
         std::cout << '\n';
