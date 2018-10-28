@@ -211,4 +211,10 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
     return v;
 }
 
+template <typename T>
+std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
+{
+
+}
+
 #endif //!TNODESTRUCT
