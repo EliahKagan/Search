@@ -42,4 +42,7 @@ void test_trees()
     }
     cout << "\n\n";
     uglyprint(root3);
+
+    cout << "\n\n";
+    prettyprint(root);
 }

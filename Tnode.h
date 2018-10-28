@@ -114,18 +114,19 @@ namespace detail {
     template<typename T>
     void sort_prettyprint_table_row(std::vector<ColNodePair<T>>& row)
     {
-        std::sort(begin(row), end(row), [](const ColNodePair& lhs,
-                                           const ColNodePair& rhs) {
+        std::sort(begin(row), end(row), [](const ColNodePair<T>& lhs,
+                                           const ColNodePair<T>& rhs) {
             return lhs.col < rhs.col;
         });
     }
 
     template<typename T>
-    std::vector<ColNodePair<T>> get_prettyprint_table(const Tnode<T>* tree)
+    std::vector<std::vector<ColNodePair<T>>>
+    get_prettyprint_table(const Tnode<T>* const tree)
     {
         std::vector<std::vector<ColNodePair<T>>> table;
 
-        const auto put = [&table, j = 0](const Tnode<T>* const node,
+        auto put = [&table, j = 0](const Tnode<T>* const node,
                                          const int i) mutable {
             if (size(table) <= i) table.resize(i + 1);
             table.at(i).push_back({j++, node});
@@ -149,14 +150,20 @@ namespace detail {
 template<typename T>
 void prettyprint(const Tnode<T>* tree)
 {
-    static constexpr auto format_width = 3, field_width = format_width + 2;
+    static constexpr auto item_width = 3, padding = 2;
+    static constexpr auto field_width = item_width + padding;
 
-    for (const auto& row : get_prettyprint_table(tree)) {
+    for (const auto& row : detail::get_prettyprint_table(tree)) {
         auto cursor_col = 0;
 
         for (const auto [col, node] : row) {
-            assert(cursor_col <= col);
+            const auto delta = col - cursor_col;
+            assert(delta >= 0);
 
+            std::cout << std::setw(field_width * delta + padding) << ""
+                      << std::setw(item_width) << node->element;
+
+            cursor_col = col;
         }
 
         std::cout << '\n';
