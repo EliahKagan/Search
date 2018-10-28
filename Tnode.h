@@ -140,7 +140,8 @@ namespace detail {
 template<typename T>
 void prettyprint(const Tnode<T>* tree)
 {
-    static constexpr auto item_width = 3, padding = 2;
+    using std::cout;
+    static constexpr auto item_width = 1, padding = 0;
     static constexpr auto field_width = item_width + padding;
 
     for (const auto& row : detail::get_prettyprint_table(tree)) {
@@ -150,8 +151,12 @@ void prettyprint(const Tnode<T>* tree)
             const auto delta = col - cursor_col;
             assert(delta >= 0);
 
-            std::cout << std::setw(field_width * delta + padding) << ""
-                      << std::setw(item_width) << node->element;
+            cout << std::setfill('*') << std::setw(field_width * delta) << ""
+                 << std::setfill(' ') << std::setw(padding) << ""
+                 << std::setw(item_width) << node->element;
+
+            //std::cout << std::setw(field_width * delta + padding) << ""
+            //          << std::setw(item_width) << node->element;
 
             cursor_col = col;
         }
