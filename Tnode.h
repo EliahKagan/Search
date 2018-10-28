@@ -151,12 +151,12 @@ void prettyprint(const Tnode<T>* tree)
             const auto delta = col - cursor_col;
             assert(delta >= 0);
 
-            cout << std::setfill('*') << std::setw(field_width * delta) << ""
-                 << std::setfill(' ') << std::setw(padding) << ""
-                 << std::setw(item_width) << node->element;
+            //cout << std::setfill(' ') << std::setw(field_width * delta) << ""
+            //     << std::setfill(' ') << std::setw(padding) << ""
+            //     << std::setw(item_width) << node->element;
 
-            //std::cout << std::setw(field_width * delta + padding) << ""
-            //          << std::setw(item_width) << node->element;
+            std::cout << std::setw(field_width * delta + padding) << ""
+                      << std::setw(item_width) << node->element;
 
             cursor_col = col + 1;
         }
