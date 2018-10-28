@@ -36,7 +36,7 @@ void test_trees()
     uglyprint(root2);
 
     auto root3 = root2;
-    for (auto i = 10; i > 0; --i) {
+    for (auto i = 10; i > 0; i -= 2) {
         root3 = f(i, root3, nullptr);
         root3 = f(i - 1, nullptr, root3);
     }
@@ -48,4 +48,7 @@ void test_trees()
 
     cout << "\n\n";
     prettyprint(root2);
+
+    cout << "\n\n";
+    prettyprint(root3);
 }
