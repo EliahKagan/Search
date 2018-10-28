@@ -217,7 +217,16 @@ std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
     std::vector<T> v;
     std::stack<const Tnode<T>*> s;
 
+    while (tree || !empty(s)) {
+        // Go left as far as possible.
+        for (; tree; tree = tree->left) {
+            v.push_back(tree->element);
+            s.push(tree);
+        }
 
+        tree = s.top()->right;
+        s.pop();
+    }
 
     return v;
 }
