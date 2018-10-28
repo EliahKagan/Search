@@ -11,7 +11,7 @@ namespace {
 
     void heading(const std::string_view text)
     {
-        std::cout << "\n::: " << text << " :::\n";
+        std::cout << "\n ::: " << text << " :::\n";
     }
 
     template<typename T>
