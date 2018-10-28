@@ -17,6 +17,7 @@ void test_trees()
 
     print(tree_to_vector_pre(root));
     print(tree_to_vector_preit(root));
+    print(tree_to_vector_preit_alt(root));
     print(tree_to_vector_in(root));
     print(tree_to_vector_post(root));
     print(tree_to_vector_level(root));
@@ -26,6 +27,7 @@ void test_trees()
                            f(6)));
     print(tree_to_vector_pre(root2));
     print(tree_to_vector_preit(root2));
+    print(tree_to_vector_preit_alt(root2));
     print(tree_to_vector_in(root2));
     print(tree_to_vector_post(root2));
     print(tree_to_vector_level(root2));
