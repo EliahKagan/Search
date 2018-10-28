@@ -127,7 +127,7 @@ namespace detail {
         std::vector<std::vector<ColNodePair<T>>> table;
 
         auto put = [&table, j = 0](const Tnode<T>* const node,
-                                         const int i) mutable {
+                                   const int i) mutable {
             if (size(table) <= i) table.resize(i + 1);
             table.at(i).push_back({j++, node});
         };
