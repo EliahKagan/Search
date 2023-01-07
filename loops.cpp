@@ -12,13 +12,13 @@ using namespace std;
 using namespace std::literals;
 
 namespace {
-    template <typename T>
+    template<typename T>
     T using_accumulate(const vector<T> &a)
     {
         return accumulate(a.begin(), a.end(), T{});
     }
 
-    template <typename T>
+    template<typename T>
     T for_each_test(const vector<T> &a)
     {
         T result {};
@@ -26,7 +26,7 @@ namespace {
         return result;
     }
 
-    template <typename T>
+    template<typename T>
     T range_for(const vector<T> &a)
     {
         T result {};
@@ -35,7 +35,7 @@ namespace {
         return result;
     }
 
-    template <typename T>
+    template<typename T>
     T typical_for(const vector<T> &a)
     {
         T result {};
@@ -44,7 +44,7 @@ namespace {
         return result;
     }
 
-    template <typename T>
+    template<typename T>
     T for_indices(const vector<T> &a)
     {
         T result {};
@@ -53,7 +53,7 @@ namespace {
         return result;
     }
 
-    template <typename T>
+    template<typename T>
     T for_indices_size(const vector<T> &a)
     {
         T result {};

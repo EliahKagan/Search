@@ -9,14 +9,14 @@
 #include <utility>
 #include <vector>
 
-template <typename T>
+template<typename T>
 struct Lnode
 {
     T element;
     Lnode* next;
 };
 
-template <typename T>
+template<typename T>
 std::size_t list_size(const Lnode<T>* list)
 {
     std::size_t count {};
@@ -25,14 +25,14 @@ std::size_t list_size(const Lnode<T>* list)
     return count;
 }
 
-template <typename T>
+template<typename T>
 const Lnode<T>* advance_list_by(const Lnode<T>* list, std::size_t num)
 {
     for (int i = 0; i < num; ++i) list = list->next;
     return list;
 }
 
-template <typename T>
+template<typename T>
 void print_list(const Lnode<T>* list)
 {
     while (list != nullptr)
@@ -43,7 +43,7 @@ void print_list(const Lnode<T>* list)
     std::cout << '\n';
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* copy_list(const Lnode<T>* list, Pool<Lnode<T>>& p)
 {
     Lnode<T> sentinel {};
@@ -60,7 +60,7 @@ Lnode<T>* copy_list(const Lnode<T>* list, Pool<Lnode<T>>& p)
     return sentinel.next;
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
     Lnode<T>* head = nullptr;
@@ -74,7 +74,7 @@ Lnode<T>* make_list(const std::vector<T>& v, Pool<Lnode<T>>& p)
     return head;
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* reverse_list(Lnode<T>* list)
 {
     Lnode<T>* head = nullptr;
@@ -89,7 +89,7 @@ Lnode<T>* reverse_list(Lnode<T>* list)
 }
 
 
-template <typename T>
+template<typename T>
 Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
     Lnode<T>* head = nullptr;
@@ -115,7 +115,7 @@ Lnode<T>* make_list_fwd(const std::vector<T>& v, Pool<Lnode<T>>& p)
     return head;
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* make_list_fwd_eliah(const std::vector<T>& v, Pool<Lnode<T>>& p)
 {
     Lnode<T> sentinel {};
@@ -130,7 +130,7 @@ Lnode<T>* make_list_fwd_eliah(const std::vector<T>& v, Pool<Lnode<T>>& p)
     return sentinel.next;
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> make_vector(const Lnode<T>* list)
 {
     std::vector<T> rvec;
@@ -143,7 +143,7 @@ std::vector<T> make_vector(const Lnode<T>* list)
     return rvec;
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* search_list(Lnode<T>* list, const T& value)
 {
     for (; list != nullptr; list = list ->next)
@@ -160,7 +160,7 @@ Lnode<T>* search_list_eliah(Lnode<T>* list, const T& value)
     return list;
 }
 
-template <typename T>
+template<typename T>
 bool list_equal(Lnode<T>* list1, Lnode<T>* list2)
 {
     while(list1 != nullptr && list2 != nullptr)
@@ -174,7 +174,7 @@ bool list_equal(Lnode<T>* list1, Lnode<T>* list2)
     return list1 == nullptr && list2 == nullptr;
 }
 
-template <typename T>
+template<typename T>
 bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
 {
     for (; list1 != list2; list1 = list1->next, list2 = list2->next) {
@@ -186,7 +186,7 @@ bool list_equal_eliah(Lnode<T>* list1, Lnode<T>* list2)
 }
 
 // Returns (satisfy predicate, don't satisfy predicate).
-template <typename T, typename F>
+template<typename T, typename F>
 std::pair<Lnode<T>*, Lnode<T>*> split_list(Lnode<T>* list, F f)
 {
     Lnode<T> fail_sentinel {0, list};
@@ -234,7 +234,7 @@ std::pair<Lnode<T>*, Lnode<T>*> split_list_eliah(Lnode<T>* list, F f)
     return {true_sentinel.next, false_sentinel.next};
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
 {
     Lnode<T> top_sentinel {0, top};
@@ -260,7 +260,7 @@ Lnode<T>* merge_lists(Lnode<T>* top, Lnode<T>* bottom)
     return top_sentinel.next;
 }
 
-template <typename T>
+template<typename T>
 Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
 {
     Lnode<T> sentinel {};
@@ -280,7 +280,7 @@ Lnode<T>* merge_lists_eliah(Lnode<T>* head1, Lnode<T>* head2)
     return sentinel.next;
 }
 
-template <typename T>
+template<typename T>
 bool has_cycle(const Lnode<T>* list)
 {
     std::unordered_set<const Lnode<T>*> s;
@@ -293,7 +293,7 @@ bool has_cycle(const Lnode<T>* list)
     return false;
 }
 
-template <typename T>
+template<typename T>
 bool has_cycle_floyd(const Lnode<T>* list)
 {
     const Lnode<T>* slow = list;
@@ -348,7 +348,7 @@ bool lists_meet(const Lnode<T>* lista, const Lnode<T>* listb)
     return false;
 }
 
-template <typename T>
+template<typename T>
 bool lists_meet_o1(const Lnode<T>* lista, const Lnode<T>* listb)
 {
     auto asize = list_size(lista);

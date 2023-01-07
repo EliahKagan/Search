@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-template <class T>
+template<class T>
 void print(const std::vector<T>& vec)
 {
     auto sep = "";

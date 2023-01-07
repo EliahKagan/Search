@@ -14,7 +14,7 @@
 #include <vector>
 #include "Pool.h"
 
-template <typename T>
+template<typename T>
 struct Tnode
 {
     T element;
@@ -27,7 +27,7 @@ struct Tnode
     explicit Tnode(T&& p) : Tnode{std::move(p), nullptr, nullptr} { }
 };
 
-template <typename T>
+template<typename T>
 std::size_t tree_size(const Tnode<T>* tree)
 {
     if (tree == nullptr)
@@ -36,7 +36,7 @@ std::size_t tree_size(const Tnode<T>* tree)
         return 1 + tree_size(tree->left) + tree_size(tree->right);
 }
 
-template <typename T, typename F>
+template<typename T, typename F>
 void preorder(const Tnode<T>* tree, F f)
 {
     if (tree) {
@@ -46,7 +46,7 @@ void preorder(const Tnode<T>* tree, F f)
     }
 }
 
-template <typename T, typename F>
+template<typename T, typename F>
 void inorder(const Tnode<T>* tree, F f)
 {
     if (tree) {
@@ -56,7 +56,7 @@ void inorder(const Tnode<T>* tree, F f)
     }
 }
 
-template <typename T, typename F>
+template<typename T, typename F>
 void postorder(const Tnode<T>* tree, F f)
 {
     if (tree) {
@@ -66,7 +66,7 @@ void postorder(const Tnode<T>* tree, F f)
     }
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> tree_to_vector_pre(const Tnode<T>* tree)
 {
     std::vector<T> v;
@@ -83,7 +83,7 @@ std::vector<T> tree_to_vector_pre(const Tnode<T>* tree)
     return v;
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> tree_to_vector_post(const Tnode<T>* tree)
 {
     std::vector<T> v;
@@ -100,7 +100,7 @@ std::vector<T> tree_to_vector_post(const Tnode<T>* tree)
     return v;
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
 {
     std::vector<T> v;
@@ -117,7 +117,7 @@ std::vector<T> tree_to_vector_in(const Tnode<T>* tree)
     return v;
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
 {
     std::vector<T> v;
@@ -141,7 +141,7 @@ std::vector<T> tree_to_vector_level(const Tnode<T>* tree)
     return v;
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
 {
     std::vector<T> v;
@@ -168,7 +168,7 @@ std::vector<T> tree_to_vector_preit(const Tnode<T>* tree)
     return v;
 }
 
-template <typename T>
+template<typename T>
 std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
 {
     std::vector<T> v;
@@ -188,7 +188,7 @@ std::vector<T> tree_to_vector_preit_alt(const Tnode<T>* tree)
     return v;
 }
 
-template <typename T>
+template<typename T>
 void uglyprint(const Tnode<T>* tree, int indent = 0)
 {
     if (tree == nullptr)

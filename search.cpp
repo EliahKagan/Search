@@ -70,12 +70,12 @@ namespace {
         });
     }
 
-    template <class T>
+    template<class T>
     std::ptrdiff_t vindex(const std::vector<T>& vec, const T& el)
     {
-        //return first occurance
+        // return first occurrence
         auto it = std::find(vec.begin(), vec.end(), el);
-        //element is not it
+        // element is not it
         if (it != std::end(vec))
             return std::distance(vec.begin(),it);
         else
@@ -93,14 +93,14 @@ namespace {
         return -1;
     }
 
-    template <typename T>
+    template<typename T>
     std::vector<T> unique(const std::vector<T>& invector)
     {
         std::unordered_set<T> s;
         std::vector<T> outvector;
         for (auto &i: invector)
         {
-        //if the element isn't already in the set, copy to outvector
+        // if the element isn't already in the set, copy to outvector
             if (s.find(i) == s.end())
                 outvector.push_back(i);
             //insert into set

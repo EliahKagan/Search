@@ -4,7 +4,7 @@
 #include <deque>
 #include <utility>
 
-template <typename T>
+template<typename T>
 class Pool
 {
     public:
@@ -18,15 +18,15 @@ class Pool
         std::deque<T> q;
 };
 
-template <typename T>
-template <typename... Args>
+template<typename T>
+template<typename... Args>
 T* Pool<T>::operator()(Args&&... args)
 {
    return &(q.emplace_back(std::forward<Args>(args)...));
 }
 
-template <typename T>
-template <typename... Args>
+template<typename T>
+template<typename... Args>
 inline T* Pool<T>::newmem(Args&&... args)
 {
    return (*this)(std::forward<Args>(args)...);
